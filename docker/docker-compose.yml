@@ -28,7 +28,7 @@ services:
       - cache
       - database
     volumes:
-      - ./cloud/content:/var/www/html # Move to ZFS pool
+      - ./cloud/content:/var/www/html # Place in ZFS pool
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
   
@@ -38,7 +38,7 @@ services:
     restart: always
     volumes:
       - ./database/config/.cnf:/etc/mysql/conf.d:ro
-      - ./database/content:/var/lib/mysql # Move to ZFS pool
+      - ./database/content:/var/lib/mysql # Place in ZFS pool
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
   

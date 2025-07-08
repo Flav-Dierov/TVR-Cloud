@@ -219,6 +219,10 @@ exit
 
 ## 4. Dienste
 
+### docker-compose.yml
+
+### .env
+
 ### Cloud
 
 ### Data
