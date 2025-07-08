@@ -198,7 +198,7 @@ Das 'Secure Shell'-Protokoll erlaubt den sicheren Zugriff auf die Konsole eines 
 
 Einrichten:
 
-1. Installieren vom OpenSSH Server mit `apt install openssh-server`
+1. Installieren vom OpenSSH Server mit `apt install openssh-server -y`
 2. Optional: Den Port 22/TCP im Router auf den Server weiterleiten, um Zugriff ausserhalb des LAN zu ermöglichen.
 
 Benützung:
@@ -213,7 +213,19 @@ exit
 
 ### Inadyn
 
+Beschreibung:
+
+Installation:
+
+`apt install inadyn -y`
+
 ### Miniupnpc
+
+Beschreibung:
+
+Installation:
+
+`apt install miniupnpc -y`
 
 ### Docker
 
