@@ -99,50 +99,61 @@ Für gewöhnlich werden Network-Attached-Storage-Geräte für das hosten von pri
 
 Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt zu sein. Neueste Geräte nutzen wie Smartphones die ARMx64 Prozessor-Architektur, was sie effizient und zugleich leistungsstark macht. Diese Aspekte macht sie ideal für den kontinuierlichen Betrieb von intensiven Aufgaben. SBC kommen in verschiedenen Formen, gewisse mehr und gewisse weniger geeignet für das Hosten von Cloud-Diensten. Dabei gibt es viele Möglichkeiten sie mit Erweiterungen auf gewisse Tasks abzustimmen.
 
-Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem Cloud-Dienst machen könnte. Primär würde die Cloud als Kollaborationsplattform genutzt, mit der Fähigkeit als Ablage für unsere Fotos zu dienen, also werden eher kleine bis mittlere Dateien vom System gehandlet. Die Dienste, die den kollaborativen Aspekt ermöglichen, benötigen mehr Leistung als ein einfacher Datenspeicher. Dazu kommt, das sich die Geräte Zuhause bei einem Mitglied befinden werden, weshalb darauf abgezielt wird die Aufgabe möglichst schmerzlos zu machen.
+Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem Cloud-Dienst machen könnte. Primär würde die Cloud als Kollaborationsplattform genutzt, mit der Fähigkeit als Ablage für unsere Fotos zu dienen, also werden eher kleine bis mittlere Dateien vom System gehandlet. Die Dienste, die den kollaborativen Aspekt ermöglichen, benötigen mehr Leistung als ein einfacher Datenspeicher.
 
 Vergleich:
-Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. Das grösste Manko ist der einzelne 1Gbit-Ethernet port. Dieser sollte aber ausreichend sein, um die Dienste für sicher 10 Personen zur Verfügung zu stellen.
+
+Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. Der SBC könnte mit einem [2.5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) (45CHF) ergänzt werden.
 
 | System            | Radxa Rock 5C 32Gb          | Terramaster F4-424  |
 | ----------------- | --------------------------- | ------------------- |
-| Schächte          | 4x 2.5" SATA                | **4x 3.5" SATA**    |
-| Ethernet          | 1x 1Gbps                    | **2x 2.5 Gbps**     |
+| Schächte          | **5x SATA**                 | 4x SATA             |
+| Ethernet          | 1x 1Gbps                  | **2x 2.5 Gbps**     |
 | Arbeitsspeicher   | **32Gb**                    | 8Gb                 |
 | Prozessor         | **4x 3.30GHz, 4x 2.31GHz**  | 4x 3.40GHz          |
-| Leistungsaufnahme | **~18W**                    | ~36W                |
+| Leistungsaufnahme | **~8W**                     | ~17W                |
 | M.2 Cache         | Nein                        | **Ja**              |
-| Preis             | **CHF 238**                 | CHF 420             |
+| Preis             | **CHF 275**                 | CHF 420             |
+
+Wenn man die verschiedenen Typen von Speichermedien vergleicht, stellt man schnell fest, dass jede Option gewisse Vorteile mit sich bringt. Auf den ersten Blick mögen SSDs als offensichtliche Antwort erscheinen, was bei genauerer Analyse anders aussieht. SSDs mögen zwar schnell sein, das System ist jedoch auf die Transferrate des Ethernet Ports begrenzt und obwohl HDDs im Ruhezustand mehr Strom benötigen als SSDs, sind sie aufgrund des geringeren Preises günstiger auf die erwartete Laufzeit gesehen. Ideal wären also 2.5" Festplatten, da es jedoch nur Optionen mit SMR und nicht CMR gibt, fällt die Wahl auf 3.5" HDDs.
+
+| Medium (5x)               | 2.5" SSD      | 2.5" HDD  | 3.5" HDD    |
+| ------------------------- | ------------- | --------- | ----------- |
+| Preis                     | CHF 1305      | CHF 699   | **CHF 544** |
+| Leistungsaufnahme Standby | **~0.2W**     | ~1.0W     | ~2.5W       |
+| Leistungsaufnahme Last    | ~25W          | **~10W**  | ~25W        |
+| Lesegeschwindigkeit       | **22.4Gbps**  | 5.6Gbps   | 8.7Gbps     |
+| Schreibgeschwindigkeit    | **21.2Gbps**  | 5.6Gbps   | 8.7Gbps     |
 
 ### Hauptserver
 
-Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung, sowie Arbeitsspeicher benötigt. Die SSDs wurden aufgrund ihrer Haltbarkeit gewählt.
+Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung, sowie Arbeitsspeicher benötigt.
 
-| Komponenten                                                                                                             | Preis        |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [1x Radxa Rock 5C (32Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                             | CHF 163      |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                 | CHF 4        |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)  | CHF 37       |
-| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                           | CHF 17       |
-| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                               | CHF 10       |
-| ([1x Radxa Penta SATA HAT Top](https://arace.tech/products/radxa-penta-sata-hat-top-board))                             | CHF 7        |
-| [4x Samsung 870 Evo (4Tb)](https://www.galaxus.ch/de/s1/product/samsung-870-evo-4000-gb-25-ssd-14599189)                | CHF 1044     |
-| **TOTAL**                                                                                                               | **CHF 1282** |
+| Komponenten                                                                                                                           | Preis        |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C (32Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                           | CHF 163      |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                               | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37       |
+| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17       |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10       |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 44       |
+| [5x WD Red Plus (4Tb)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500      |
+| **TOTAL**                                                                                                                             | **CHF 775**  |
 
 ### Backupserver
 
 Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle das dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt nur temporär zugeschaltet zu werden und hostet nur die essenziellen Dienste, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.
 
-| Komponenten                                                                                                             | Preis        |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [1x Radxa Rock 5C Lite (16Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                        | CHF 86       |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                 | CHF 4        |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)  | CHF 37       |
-| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                           | CHF 17       |
-| [1x Radxa Power DC12 36W](https://arace.tech/products/radxa-power-dc-36w)                                               | CHF 8        |
-| ([1x Radxa Penta SATA HAT Top](https://arace.tech/products/radxa-penta-sata-hat-top-board))                             | CHF 7        |
-| [4x Samsung 870 Evo (4Tb)](https://www.galaxus.ch/de/s1/product/samsung-870-evo-4000-gb-25-ssd-14599189)                | CHF 1044     |
-| **TOTAL**                                                                                                               | **CHF 1203** |
+| Komponenten                                                                                                                           | Preis        |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C Lite (16Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                      | CHF 86       |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                               | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37       |
+| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17       |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10       |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 44       |
+| [5x WD Red Plus (4Tb)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500      |
+| **TOTAL**                                                                                                                             | **CHF 698**  |
 
 ## 3. System
 
