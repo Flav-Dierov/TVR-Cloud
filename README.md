@@ -167,7 +167,7 @@ Installation:
 7. Die SD in den SD-Karten Leser auf der Unterseite des SBCs einfügen
 8. Den SBC einschalten
 
-Einrichten:
+Einrichtung:
 Nun sollte das System automatisch starten und als nächstes die Erstellung der Nutzerkonten abwarten.
 1. Nutzernamen wählen
 2. Passwort wählen
@@ -183,7 +183,7 @@ Das 'Secure Shell'-Protokoll erlaubt den sicheren Zugriff auf die Konsole eines 
 Installation:
 `apt install openssh-server -y`
 
-Einrichten:
+Einrichtung:
 - Root Login de-/aktivieren: `armbian-config --cmd ACC001/ACC002`
 - Passwort Login de-/aktivieren: `armbian-config --cmd ACC003/ACC004`
 - Schlüssel Login de-/aktivieren: `armbian-config --cmd ACC005/ACC006`
@@ -200,11 +200,19 @@ exit # Verbindung trennen
 
 ### OpenZFS
 
+Beschreibung:
+Das Zettabyte-File-System stellt Werkzeuge für Storage-Pooling, Backups, Kompression, Verschlüsselung, RAID-Management und Speicherbeschleunigung zur Verfügung.
+
 Installation:
 `armbian-config --cmd ZFS001`
 
 oder [Offizielle Anleitung](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html#installation)
 
+Einrichtung:
+
+1. `zpool create <name> <RAID> <drive1> <drive2> <drive3> ...`
+https://ubuntu.com/tutorials/setup-zfs-storage-pool
+https://wiki.ubuntu.com/Kernel/Reference/ZFS
 
 ### Inadyn
 
