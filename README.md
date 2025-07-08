@@ -17,7 +17,6 @@ Ziel dieses Repos ist es den Aufbau des TVR-Cloud-Servers zu dokumentieren. Die 
 ## 1. Hosting
 
 Vergleich:
-
 Unter den grossen schweizer Hostinganbietern gibt es grundsätzlich [Hostpoint.ch](https://hostpoint.ch) und [Infomaniak.com](https://infomaniak.com), wobei letzterer im Vergleich der relevanten Werte als Favourit hervortritt.
 
 | Anbieter                 | Infomaniak   | Hostpoint    |
@@ -31,27 +30,22 @@ Unter den grossen schweizer Hostinganbietern gibt es grundsätzlich [Hostpoint.c
 ### Domain
 
 Beschreibung:
-
 Eine Domain ist im Grunde ein Nutzerdefinierter Name für eine IP-Addresse, dabei leitet ein Hostinganbieter mit einer statischen IP die Anfragen auf eine Domain zur entsprechenden IP eines Servers weiter.
 
 Der Anbieter unserer Wahl Infomaniak bietet .ch Domainnamen für CHF10/Jahr an. Im Preis inbegriffen sind ein DDNS-Dienst, unlimitierte Sub-Domains, 1 E-Mail Addresse, sowie eine statische Webseite mit 100Gb Speicherplatz.
 
 Verwendung:
-
 Verwalten lässt die Domain im Infomaniak-Manager unter 'Menu > Web & Domains > Domains > Domainname > Dashboard'.
 
 ### Dynamic DNS
 
 Beschreibung:
-
 Private Netzwerke erhalten ihre öffentlichen IP-Addressen vom jeweiligen Internet Service Provider. Diese IPs sind nicht statisch und können je nach ISP in regelmässigen Abständen ändern. Um trotzdem einen Dienst in einem privaten Netzwerk bereitstellen zu können, gibt es die Möglichkeit die IP über einen DDNS-Dienst laufend zu aktualisieren. Dabei sendet ein Gerät aus dem Netzwerk die Informationen über die öffentliche IP über eine Schnittstelle zum Hostinganbieter.
 
 Verwendung:
-
 Wenn man im Manager eine Domain betrachtet, findet man unter 'Menu > Dynamic DNS' die Einstellungen für den DDNS-Dienst. Um den Dienst nutzen zu können, müssen die gewünschten Sub-Domains, ein Nutzername und ein Passwort gewählt werden, **diese sind spezifisch für den DDNS-Dienst und unterscheiden sich vom Standard Infomaniak Konto.** Es ist möglich einzelne Sub-Domains mit verschiedenen Nutzernamen und Passwörtern zu verwalten.
 
 Die wichtigen Informationen für das Aktualisieren der DDNS sind:
-
 ```txt
 username        = <Nutzername>
 password        = <Passwort>
@@ -66,15 +60,12 @@ protocol        = dyndns2
 ### E-Mail
 
 Beschreibung:
-
 Infomaniak bietet einen Mail-Dienst für die jeweilige Domain an. Es wird empfohlen das Konto mithilfe des gewüschten Mail-Clients zu betrachten.
 
 Verwendung:
-
 Im Manager unter 'Menu > Collaboration-Tools > Mail-Service > Domainname > Auf meinen Mail-Service zugreifen' lassen sich die einzelnen Addressen für die jeweilige Domain verwalten.
 
 Wer sein Konto in einem externen Client betrachten möchte, benötigt folgende Informationen:
-
 ```txt
 IMAP-server     = mail.infomaniak.com
 IMAP-port       = 993 (mit SSL)
@@ -94,7 +85,6 @@ authentication  = true (für SMTP)
 ## 2. Hardware
 
 Beschreibung:
-
 Für gewöhnlich werden Network-Attached-Storage-Geräte für das hosten von privaten Cloud-Diensten verwendet. Sie verfügen üblicherweise über umfangreiche Möglichkeiten zur Speicherausstattung und Ethernet konnektivität. Hochwertigere Geräte verfügen zudem über die M.2 Speicheranschlüsse, damit ein NVMe cache betrieben werden kann, was die Geschwindigkeit von Speicheroperationen beschleunigen kann. Sie sind deshalb ideal für das Ablagern und Anzeigen von grossen Mediendateien wie Filmen für wenige Nutzer geeignet. Der Nachteil von NAS-Geräten ist, dass sie nur über spärliche Rechenleistung und Arbeitsspeicher verfügen und bereits Einsteigermodelle einen beachtlichen Preis haben. Das macht sie ungünstig zum betreiben von Cloud-Diensten für viele Nutzer oder mit höherem Rechenaufwand.
 
 Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt zu sein. Neueste Geräte nutzen wie Smartphones die ARMx64 Prozessor-Architektur, was sie effizient und zugleich leistungsstark macht. Diese Aspekte macht sie ideal für den kontinuierlichen Betrieb von intensiven Aufgaben. SBC kommen in verschiedenen Formen, gewisse mehr und gewisse weniger geeignet für das Hosten von Cloud-Diensten. Dabei gibt es viele Möglichkeiten sie mit Erweiterungen auf gewisse Tasks abzustimmen.
@@ -102,7 +92,6 @@ Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt
 Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem Cloud-Dienst machen könnte. Primär würde die Cloud als Kollaborationsplattform genutzt, mit der Fähigkeit als Ablage für unsere Fotos zu dienen, also werden eher kleine bis mittlere Dateien vom System gehandlet. Die Dienste, die den kollaborativen Aspekt ermöglichen, benötigen mehr Leistung als ein einfacher Datenspeicher.
 
 Vergleich:
-
 Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. Der SBC könnte mit einem [2.5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) (45CHF) ergänzt werden.
 
 | System            | Radxa Rock 5C 32Gb          | Terramaster F4-424  |
@@ -162,7 +151,6 @@ Dieser Abschnitt umfasst die Installation und das Aufsetzen sämtlicher Software
 ### Armbian
 
 Beschreibung:
-
 SBCs verwenden im Grunde herkömmliche Operationssysteme. Jedoch schränkt die ARM-Architektur und der Mangel eines UEFI BIOS die Optionen etwas ein. Der Hauptunterschied dabei ist, das das OS direkt auf den Speicher kopiert werden muss. Dies ist über ein herkömmliches Installationsverfahren nicht möglich und es werden vorgefertigte Images benötigt, welche eine 1:1-Kopie eines systems sind.
 
 Wie die meisten SBC-Hersteller stellt Radxa ein passendes OS-Image für den Rock 5C zur verfügung. Dieses ist allerdings aufgrund der graphischen Benutzeroberfläche und weiterer vorinstallierter Software nicht für unsere Zwecke geeignet.
@@ -170,7 +158,6 @@ Wie die meisten SBC-Hersteller stellt Radxa ein passendes OS-Image für den Rock
 Das Armbian-Projekt entwickelt System-Images für diverse SBCs. Dabei gibt es meistens eine minimale Variante, welche perfekt für unsere Zwecke geeignet ist. Der Rock 5C ist sogar mit Platin-Support gelistet. Zusätzlich enthalten alle Armbian-Images das Armbian-Config Tool, welches hilft das System auf ein internes Medium zu kopieres, sowie einen Katalog an nützlicher Software enthält.
 
 Installation:
-
 1. Herunterladen des [minimalen Armbian-Images](https://www.armbian.com/radxa-rock-5c/)
 2. Herunterladen und installieren von [Balena Etcher](https://etcher.balena.io/)
 3. Eine Micro-SD (>1Gb) Karte mit dem PC verbinden
@@ -181,9 +168,7 @@ Installation:
 8. Den SBC einschalten
 
 Einrichten:
-
 Nun sollte das System automatisch starten und als nächstes die Erstellung der Nutzerkonten abwarten.
-
 1. Nutzernamen wählen
 2. Passwort wählen
 **Achtung: Das System verwendet zu Beginn stets das QWERTY Tastatur-Layout!** Zum Ändern `dpkg-reconfigure keyboard-configuration`
@@ -193,30 +178,39 @@ Nachdem die Nutzerkonten erstellt wurden, kann das System mit dem Befehl `armbia
 ### OpenSSH
 
 Beschreibung:
+Das 'Secure Shell'-Protokoll erlaubt den sicheren Zugriff auf die Konsole eines anderen Gerätes. Damit ist es möglich das gesamte Gerät aus der Ferne zu bedienen, vorausgesetzt es läuft und ist mit dem Internet verbunden. Grundsätzlich sollte SSH auf jedem Armbian-System vorinstalliert sein.
 
-Das 'Secure Shell'-Protokoll erlaubt den sicheren Zugriff auf die Konsole eines anderen Gerätes. Damit ist es möglich das gesamte Gerät aus der Ferne zu bedienen, vorausgesetzt es läuft und ist mit dem Internet verbunden.
+Installation:
+`apt install openssh-server -y`
 
 Einrichten:
-
-1. Installieren vom OpenSSH Server mit `apt install openssh-server -y`
-2. Optional: Den Port 22/TCP im Router auf den Server weiterleiten, um Zugriff ausserhalb des LAN zu ermöglichen.
+- Root Login de-/aktivieren: `armbian-config --cmd ACC001/ACC002`
+- Passwort Login de-/aktivieren: `armbian-config --cmd ACC003/ACC004`
+- Schlüssel Login de-/aktivieren: `armbian-config --cmd ACC005/ACC006`
+- Einmaliges Passwort de-/aktivieren: `armbian-config --cmd ACC007/ACC008`
+- Fernzugriff: Den Port 22/TCP im Router auf den Server weiterleiten, um Zugriff ausserhalb des LAN zu ermöglichen.
+- **Empfehlung** - SSH über VSCode nutzen: In VSCode 'Verbinden mit...' anwählen, Nutzer@Addresse und Passwort eingeben.
 
 Benützung:
-
 ```sh
-ssh -h
-ssh username@IP
-exit
+ssh -h # Hilfe
+ssh Nutzer@Addresse # Verbinden
+exit # Verbindung trennen
 ```
 
 ### OpenZFS
+
+Installation:
+`armbian-config --cmd ZFS001`
+
+oder [Offizielle Anleitung](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html#installation)
+
 
 ### Inadyn
 
 Beschreibung:
 
 Installation:
-
 `apt install inadyn -y`
 
 ### Miniupnpc
@@ -224,42 +218,20 @@ Installation:
 Beschreibung:
 
 Installation:
-
 `apt install miniupnpc -y`
 
 ### Docker
 
 Installation:
+`armbian-config --cmd CON002`
 
-1. Der GPG-Schlüssel von Docker hinzufügen:
-    ```sh
-    sudo apt-get update
-    sudo apt-get install ca-certificates curl
-    sudo install -m 0755 -d /etc/apt/keyrings
-    sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-    sudo chmod a+r /etc/apt/keyrings/docker.asc
-    ```
-2. Das Docker Repository zu den APT Quellen hunzufügen:
-    ```sh
-    echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get update
-    ```
-3. Alle notwendigen Pakete installieren:
-    ```sh
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-    ```
-4. Autostart für Docker einstellen:
-    ```sh
-    sudo systemctl enable docker.service
-    sudo systemctl enable containerd.service
-    ```
+oder [Offizielle Anleitung](https://docs.docker.com/engine/install/debian/)
 
 ## 4. Dienste
 
 ### docker-compose.yml
+
+[Referenz](https://docs.docker.com/reference/compose-file/)
 
 ### .env
 
