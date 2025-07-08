@@ -157,9 +157,57 @@ Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle das diese
 
 ## 3. System
 
+Dieser Abschnitt umfasst die Installation und das Aufsetzen sämtlicher Software auf Systemebene.
+
 ### Armbian
 
+Beschreibung:
+
+SBCs verwenden im Grunde herkömmliche Operationssysteme. Jedoch schränkt die ARM-Architektur und der Mangel eines UEFI BIOS die Optionen etwas ein. Der Hauptunterschied dabei ist, das das OS direkt auf den Speicher kopiert werden muss. Dies ist über ein herkömmliches Installationsverfahren nicht möglich und es werden vorgefertigte Images benötigt, welche eine 1:1-Kopie eines systems sind.
+
+Wie die meisten SBC-Hersteller stellt Radxa ein passendes OS-Image für den Rock 5C zur verfügung. Dieses ist allerdings aufgrund der graphischen Benutzeroberfläche und weiterer vorinstallierter Software nicht für unsere Zwecke geeignet.
+
+Das Armbian-Projekt entwickelt System-Images für diverse SBCs. Dabei gibt es meistens eine minimale Variante, welche perfekt für unsere Zwecke geeignet ist. Der Rock 5C ist sogar mit Platin-Support gelistet. Zusätzlich enthalten alle Armbian-Images das Armbian-Config Tool, welches hilft das System auf ein internes Medium zu kopieres, sowie einen Katalog an nützlicher Software enthält.
+
+Installation:
+
+1. Herunterladen des [minimalen Armbian-Images](https://www.armbian.com/radxa-rock-5c/)
+2. Herunterladen und installieren von [Balena Etcher](https://etcher.balena.io/)
+3. Eine Micro-SD (>1Gb) Karte mit dem PC verbinden
+4. Etcher als Administrator ausführen
+5. Das heruntergeladene Image und die SD wählen
+6. Flash!
+7. Die SD in den SD-Karten Leser auf der Unterseite des SBCs einfügen
+8. Den SBC einschalten
+
+Einrichten:
+
+Nun sollte das System automatisch starten und als nächstes die Erstellung der Nutzerkonten abwarten.
+
+1. Nutzernamen wählen
+2. Passwort wählen
+**Achtung: Das System verwendet zu Beginn stets das QWERTY Tastatur-Layout!** Zum Ändern `dpkg-reconfigure keyboard-configuration`
+
+Nachdem die Nutzerkonten erstellt wurden, kann das System mit dem Befehl `armbian-config --cmd STO001` auf ein internes Medium kopiert werden. Als File-System empfiehlt sich BTRFS. Im Anschluss muss das System neu gestartet werden.
+
 ### OpenSSH
+
+Beschreibung:
+
+Das 'Secure Shell'-Protokoll erlaubt den sicheren Zugriff auf die Konsole eines anderen Gerätes. Damit ist es möglich das gesamte Gerät aus der Ferne zu bedienen, vorausgesetzt es läuft und ist mit dem Internet verbunden.
+
+Einrichten:
+
+1. Installieren vom OpenSSH Server mit `apt install openssh-server`
+2. Optional: Den Port 22/TCP im Router auf den Server weiterleiten, um Zugriff ausserhalb des LAN zu ermöglichen.
+
+Benützung:
+
+```sh
+ssh -h
+ssh username@IP
+exit
+```
 
 ### OpenZFS
 
