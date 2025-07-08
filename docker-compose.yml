@@ -1,0 +1,72 @@
+services:
+  backup:
+    entrypoint: /cron.sh
+    env_file: .env
+    image: nextcloud:production-fpm-alpine
+    restart: always
+    depends_on:
+      - cache
+      - database
+    volumes_from:
+      - cloud
+  
+  cache:
+    command: redis-server --requirepass $REDIS_HOST_PASSWORD
+    env_file: .env
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./cache/content:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+  
+  cloud:
+    env_file: .env
+    image: nextcloud:production-fpm-alpine
+    restart: always
+    depends_on:
+      - cache
+      - database
+    volumes:
+      - ./cloud/content:/var/www/html # Move to ZFS pool
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+  
+  database:
+    env_file: .env
+    image: mariadb:lts
+    restart: always
+    volumes:
+      - ./database/config/.cnf:/etc/mysql/conf.d:ro
+      - ./database/content:/var/lib/mysql # Move to ZFS pool
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+  
+  office:
+    env_file: .env
+    image: onlyoffice/documentserver:latest
+    restart: always
+    expose:
+      - "80"
+      - "443"
+    volumes:
+      - ./office/data:/var/www/onlyoffice/Data
+  
+  webserver:
+    env_file: .env
+    image: caddy:alpine
+    restart: always
+    depends_on:
+      - cloud
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./webserver/data:/data
+      - ./webserver/config:/config
+      - ./webserver/caddy:/etc/caddy/
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    volumes_from:
+      - cloud
