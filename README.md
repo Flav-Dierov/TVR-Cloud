@@ -1,29 +1,28 @@
 # TVR-Cloud
+Ziel dieses Repos ist es den Aufbau des TVR-Cloud-Servers zu dokumentieren. Die Inhalte umfassen Informationen zu Analysen von Alternativen, getroffenen Entscheidungen und Handhabung verschiedener Software. Jedes Kapitel behandelt einen Aspekt des Aufbaus.
 
-## Hosting
+## 1. Hosting
 
 ### Domain
-### Mail
+### Dynamic DNS
+### E-Mail
 ### Webseite
 
-## Hardware
+## 2. Hardware
 
-### Computer
-### Speicher
-### Mirror
+### Hauptserver
+### Backupserver
 
-## System
+## 3. System
 
 ### Armbian
-### ZFS
-
-## Programme
-
-### Docker
+### OpenSSH
+### OpenZFS
 ### Ddclient
 ### Miniupnpc
+### Docker
 
-## Dienste
+## 4. Dienste
 
 ### Cloud
 ### Data
@@ -32,9 +31,13 @@
 ### Cache
 ### Office
 
-## Netzwerk
+## 5. Netzwerk
 
-## Sicherheit
+### Portweiterlaitung
+### Subnet
+### Proxy/Webserver
+
+## 6. Risikoanalyse
 
 ### Portweiterleitung
 ### Subnet
@@ -46,4 +49,4 @@
 ### Root/-less
 ### SSH
 
-## Wartung
+## 7. Wartung
