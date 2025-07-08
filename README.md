@@ -16,17 +16,17 @@ Ziel dieses Repos ist es den Aufbau des TVR-Cloud-Servers zu dokumentieren. Die 
 
 ## 1. Hosting
 
-Unter den grossen schweizer Hostinganbietern gibt es grundsätzlich [Hostpoint.ch](https://hostpoint.ch) und [Infomaniak.com](https://infomaniak.com), wobei letzterer im Vergleich der relevanten Werte als Favourit hervortritt.
-
 Vergleich:
 
-| Anbieter                 | Infomaniak  | Hostpoint   |
-| :----------------------- | ----------- | :---------- |
-| Kosten .ch Domainname    | CHF10/Jahr  | CHF15/Jahr  |
-| Kosten 10x E-Mail Nutzer | CHF192/Jahr | CHF200/Jahr |
-| Speicher Postfach        | unbegrenzt  | 15Gb/Nutzer |
-| Drive-Speicher           | 15Gb/Nutzer | 15Gb/Nutzer |
-| Standort                 | Genf        | Rapperswil  |
+Unter den grossen schweizer Hostinganbietern gibt es grundsätzlich [Hostpoint.ch](https://hostpoint.ch) und [Infomaniak.com](https://infomaniak.com), wobei letzterer im Vergleich der relevanten Werte als Favourit hervortritt.
+
+| Anbieter                 | Infomaniak   | Hostpoint    |
+| ------------------------ | ------------ | ------------ |
+| Kosten .ch Domainname    | CHF 10/Jahr  | CHF 15/Jahr  |
+| Kosten 10x E-Mail Nutzer | CHF 192/Jahr | CHF 200/Jahr |
+| Speicher Postfach        | unbegrenzt   | 15Gb/Nutzer  |
+| Drive-Speicher           | 15Gb/Nutzer  | 15Gb/Nutzer  |
+| Standort                 | Genf         | Rapperswil   |
 
 ### Domain
 
@@ -89,11 +89,60 @@ authentication  = true (für SMTP)
 
 ### Webseite
 
+### Virtual Private Server
+
 ## 2. Hardware
+
+Beschreibung:
+
+Für gewöhnlich werden Network-Attached-Storage-Geräte für das hosten von privaten Cloud-Diensten verwendet. Sie verfügen üblicherweise über umfangreiche Möglichkeiten zur Speicherausstattung und Ethernet konnektivität. Hochwertigere Geräte verfügen zudem über die M.2 Speicheranschlüsse, damit ein NVMe cache betrieben werden kann, was die Geschwindigkeit von Speicheroperationen beschleunigen kann. Sie sind deshalb ideal für das Ablagern und Anzeigen von grossen Mediendateien wie Filmen für wenige Nutzer geeignet. Der Nachteil von NAS-Geräten ist, dass sie nur über spärliche Rechenleistung und Arbeitsspeicher verfügen und bereits Einsteigermodelle einen beachtlichen Preis haben. Das macht sie ungünstig zum betreiben von Cloud-Diensten für viele Nutzer oder mit höherem Rechenaufwand.
+
+Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt zu sein. Neueste Geräte nutzen wie Smartphones die ARMx64 Prozessor-Architektur, was sie effizient und zugleich leistungsstark macht. Diese Aspekte macht sie ideal für den kontinuierlichen Betrieb von intensiven Aufgaben. SBC kommen in verschiedenen Formen, gewisse mehr und gewisse weniger geeignet für das Hosten von Cloud-Diensten. Dabei gibt es viele Möglichkeiten sie mit Erweiterungen auf gewisse Tasks abzustimmen.
+
+Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem Cloud-Dienst machen könnte. Primär würde die Cloud als Kollaborationsplattform genutzt, mit der Fähigkeit als Ablage für unsere Fotos zu dienen, also werden eher kleine bis mittlere Dateien vom System gehandlet. Die Dienste, die den kollaborativen Aspekt ermöglichen, benötigen mehr Leistung als ein einfacher Datenspeicher. Dazu kommt, das sich die Geräte Zuhause bei einem Mitglied befinden werden, weshalb darauf abgezielt wird die Aufgabe möglichst schmerzlos zu machen.
+
+Vergleich:
+Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. Das grösste Manko ist der einzelne 1Gbit-Ethernet port. Dieser sollte aber ausreichend sein, um die Dienste für sicher 10 Personen zur Verfügung zu stellen.
+
+| System            | Radxa Rock 5C 32Gb          | Terramaster F4-424  |
+| ----------------- | --------------------------- | ------------------- |
+| Schächte          | 4x 2.5" SATA                | **4x 3.5" SATA**    |
+| Ethernet          | 1x 1Gbps                    | **2x 2.5 Gbps**     |
+| Arbeitsspeicher   | **32Gb**                    | 8Gb                 |
+| Prozessor         | **4x 3.30GHz, 4x 2.31GHz**  | 4x 3.40GHz          |
+| Leistungsaufnahme | **~18W**                    | ~36W                |
+| M.2 Cache         | Nein                        | **Ja**              |
+| Preis             | **CHF 238**                 | CHF 420             |
 
 ### Hauptserver
 
+Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung, sowie Arbeitsspeicher benötigt. Die SSDs wurden aufgrund ihrer Haltbarkeit gewählt.
+
+| Komponenten                                                                                                             | Preis        |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C (32Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                             | CHF 163      |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                 | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)  | CHF 37       |
+| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                           | CHF 17       |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                               | CHF 10       |
+| ([1x Radxa Penta SATA HAT Top](https://arace.tech/products/radxa-penta-sata-hat-top-board))                             | CHF 7        |
+| [4x Samsung 870 Evo (4Tb)](https://www.galaxus.ch/de/s1/product/samsung-870-evo-4000-gb-25-ssd-14599189)                | CHF 1044     |
+| **TOTAL**                                                                                                               | **CHF 1282** |
+
 ### Backupserver
+
+Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle das dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt nur temporär zugeschaltet zu werden und hostet nur die essenziellen Dienste, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.
+
+| Komponenten                                                                                                             | Preis        |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C Lite (16Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                        | CHF 86       |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                 | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)  | CHF 37       |
+| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                           | CHF 17       |
+| [1x Radxa Power DC12 36W](https://arace.tech/products/radxa-power-dc-36w)                                               | CHF 8        |
+| ([1x Radxa Penta SATA HAT Top](https://arace.tech/products/radxa-penta-sata-hat-top-board))                             | CHF 7        |
+| [4x Samsung 870 Evo (4Tb)](https://www.galaxus.ch/de/s1/product/samsung-870-evo-4000-gb-25-ssd-14599189)                | CHF 1044     |
+| **TOTAL**                                                                                                               | **CHF 1203** |
 
 ## 3. System
 
