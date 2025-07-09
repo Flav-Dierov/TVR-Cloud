@@ -46,6 +46,7 @@ Verwendung:
 Wenn man im Manager eine Domain betrachtet, findet man unter 'Menu > Dynamic DNS' die Einstellungen für den DDNS-Dienst. Um den Dienst nutzen zu können, müssen die gewünschten Sub-Domains, ein Nutzername und ein Passwort gewählt werden, **diese sind spezifisch für den DDNS-Dienst und unterscheiden sich vom Standard Infomaniak Konto.** Es ist möglich einzelne Sub-Domains mit verschiedenen Nutzernamen und Passwörtern zu verwalten.
 
 Die wichtigen Informationen für das Aktualisieren der DDNS sind:
+
 ```txt
 username        = <Nutzername>
 password        = <Passwort>
@@ -66,6 +67,7 @@ Verwendung:
 Im Manager unter 'Menu > Collaboration-Tools > Mail-Service > Domainname > Auf meinen Mail-Service zugreifen' lassen sich die einzelnen Addressen für die jeweilige Domain verwalten.
 
 Wer sein Konto in einem externen Client betrachten möchte, benötigt folgende Informationen:
+
 ```txt
 IMAP-server     = mail.infomaniak.com
 IMAP-port       = 993 (mit SSL)
@@ -97,7 +99,7 @@ Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. 
 | System            | Radxa Rock 5C 32Gb          | Terramaster F4-424  |
 | ----------------- | --------------------------- | ------------------- |
 | Schächte          | **5x SATA**                 | 4x SATA             |
-| Ethernet          | 1x 1Gbps                  | **2x 2.5 Gbps**     |
+| Ethernet          | 1x 1Gbps                    | **2x 2.5 Gbps**     |
 | Arbeitsspeicher   | **32Gb**                    | 8Gb                 |
 | Prozessor         | **4x 3.30GHz, 4x 2.31GHz**  | 4x 3.40GHz          |
 | Leistungsaufnahme | **~8W**                     | ~17W                |
@@ -125,9 +127,9 @@ Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechen
 | [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37       |
 | [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17       |
 | [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10       |
-| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 44       |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 22       |
 | [5x WD Red Plus (4Tb)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500      |
-| **TOTAL**                                                                                                                             | **CHF 775**  |
+| **TOTAL**                                                                                                                             | **CHF 753**  |
 
 ### Backupserver
 
@@ -140,13 +142,13 @@ Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle das diese
 | [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37       |
 | [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17       |
 | [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10       |
-| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 44       |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 22       |
 | [5x WD Red Plus (4Tb)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500      |
-| **TOTAL**                                                                                                                             | **CHF 698**  |
+| **TOTAL**                                                                                                                             | **CHF 676**  |
 
 ## 3. System
 
-Dieser Abschnitt umfasst die Installation und das Aufsetzen sämtlicher Software auf Systemebene.
+Dieser Abschnitt umfasst die Installation, das Einrichten und die Handhabung sämtlicher Software auf Systemebene.
 
 ### Armbian
 
@@ -158,6 +160,7 @@ Wie die meisten SBC-Hersteller stellt Radxa ein passendes OS-Image für den Rock
 Das Armbian-Projekt entwickelt System-Images für diverse SBCs. Dabei gibt es meistens eine minimale Variante, welche perfekt für unsere Zwecke geeignet ist. Der Rock 5C ist sogar mit Platin-Support gelistet. Zusätzlich enthalten alle Armbian-Images das Armbian-Config Tool, welches hilft das System auf ein internes Medium zu kopieres, sowie einen Katalog an nützlicher Software enthält.
 
 Installation:
+
 1. Herunterladen des [minimalen Armbian-Images](https://www.armbian.com/radxa-rock-5c/)
 2. Herunterladen und installieren von [Balena Etcher](https://etcher.balena.io/)
 3. Eine Micro-SD (>1Gb) Karte mit dem PC verbinden
@@ -169,6 +172,7 @@ Installation:
 
 Einrichtung:
 Nun sollte das System automatisch starten und als nächstes die Erstellung der Nutzerkonten abwarten.
+
 1. Nutzernamen wählen
 2. Passwort wählen
 **Achtung: Das System verwendet zu Beginn stets das QWERTY Tastatur-Layout!** Zum Ändern `dpkg-reconfigure keyboard-configuration`
@@ -184,6 +188,7 @@ Installation:
 `apt install openssh-server -y`
 
 Einrichtung:
+
 - Root Login de-/aktivieren: `armbian-config --cmd ACC001/ACC002`
 - Passwort Login de-/aktivieren: `armbian-config --cmd ACC003/ACC004`
 - Schlüssel Login de-/aktivieren: `armbian-config --cmd ACC005/ACC006`
@@ -191,7 +196,8 @@ Einrichtung:
 - Fernzugriff: Den Port 22/TCP im Router auf den Server weiterleiten, um Zugriff ausserhalb des LAN zu ermöglichen.
 - **Empfehlung** - SSH über VSCode nutzen: In VSCode 'Verbinden mit...' anwählen, Nutzer@Addresse und Passwort eingeben.
 
-Benützung:
+Handhabung:
+
 ```sh
 ssh -h # Hilfe
 ssh Nutzer@Addresse # Verbinden
@@ -200,8 +206,10 @@ exit # Verbindung trennen
 
 ### OpenZFS
 
+[Referenz](https://openzfs.github.io/openzfs-docs/man/master/index.html)
+
 Beschreibung:
-Das Zettabyte-File-System stellt Werkzeuge für Storage-Pooling, Backups, Kompression, Verschlüsselung, RAID-Management und Speicherbeschleunigung zur Verfügung.
+Das Zettabyte-File-System stellt Werkzeuge für Storage-Pooling, Backups, Kompression, Verschlüsselung, RAID-Management und Speicherbeschleunigung zur Verfügung. 
 
 Installation:
 `armbian-config --cmd ZFS001`
@@ -210,16 +218,26 @@ oder [Offizielle Anleitung](https://openzfs.github.io/openzfs-docs/Getting%20Sta
 
 Einrichtung:
 
-1. `zpool create <name> <RAID> <drive1> <drive2> <drive3> ...`
-https://ubuntu.com/tutorials/setup-zfs-storage-pool
-https://wiki.ubuntu.com/Kernel/Reference/ZFS
+1. Erstellen eines Pools mit `zpool create <poolname> <RAID> <drive1> <drive2> <drive3> ...`
+   RAID Optionen: mirror, raidz1, raidz2, raidz3, *empty*
+2. Erstellen eines Datensets mit `zfs create <poolname>/<datasetname>`
 
 ### Inadyn
 
+[Referenz](https://github.com/troglobit/inadyn)
+
 Beschreibung:
+Inadyn ist ein Client, der dazu dient automatisch die DNS-Weiterleitung zu aktualisieren. Dabei ermittelt er die öffentliche IP und leitet diese mit Authentifizierungsinformationen zum DDNS-Dienst weiter. 
 
 Installation:
 `apt install inadyn -y`
+
+Einrichtung:
+Infomaniak.com wird standardmässig erst ab Version 2.11.0 unterstützt. Für ältere Versionen muss eine Benutzerdefinierte Konfigration mit dem dyndns2 Protokoll angelegt werden (siehe ./inadyn.conf). Die Konfigurationsdatei befindet sich üblicherweise unter `/etc/inadyn.conf` und benötigt 600 Berechtigungen.
+
+Handhabung:
+Überprüfe die Syntax der Konfigurationsdatei mit `inadyn --check-config`
+Überprüfe die Funktionalität mit `inadyn -l debug --foreground --force`
 
 ### Miniupnpc
 
@@ -229,6 +247,10 @@ Installation:
 `apt install miniupnpc -y`
 
 ### Docker
+
+[Referenz](https://docs.docker.com/reference/)
+
+Beschreibung:
 
 Installation:
 `armbian-config --cmd CON002`
