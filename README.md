@@ -103,14 +103,14 @@ Eine private Cloud hat den Vorteil, dass sie abgesehen von den Betriebskosten de
 ## 2. Hardware
 
 Beschreibung:
-Für gewöhnlich werden Network-Attached-Storage-Geräte für das hosten von privaten Cloud-Diensten verwendet. Sie verfügen üblicherweise über umfangreiche Möglichkeiten zur Speicherausstattung und Ethernet konnektivität. Hochwertigere Geräte verfügen zudem über die M.2 Speicheranschlüsse, damit ein NVMe cache betrieben werden kann, was die Geschwindigkeit von Speicheroperationen beschleunigen kann. Sie sind deshalb ideal für das Ablagern und Anzeigen von grossen Mediendateien wie Filmen für wenige Nutzer geeignet. Der Nachteil von NAS-Geräten ist, dass sie nur über spärliche Rechenleistung und Arbeitsspeicher verfügen und bereits Einsteigermodelle einen beachtlichen Preis haben. Das macht sie ungünstig zum betreiben von Cloud-Diensten für viele Nutzer oder mit höherem Rechenaufwand.
+Für gewöhnlich werden Network-Attached-Storage-Geräte für das hosten von privaten Cloud-Diensten verwendet. Sie verfügen üblicherweise über umfangreiche Möglichkeiten zur Speicherausstattung und Ethernet konnektivität. Hochwertigere Geräte verfügen zudem über M.2 Speicheranschlüsse, damit ein NVMe-Cache betrieben werden kann, was die Geschwindigkeit von Speicheroperationen beschleunigen kann. Sie sind deshalb ideal für das Ablagern und Anzeigen von grossen Mediendateien wie Filmen für wenige Nutzer geeignet. Der Nachteil von NAS-Geräten ist, dass sie nur über spärliche Rechenleistung und Arbeitsspeicher verfügen und bereits Einsteigermodelle einen beachtlichen Preis haben. Das macht sie ungeeignet zum Betreiben von Cloud-Diensten für viele Nutzer oder mit höherem Rechenaufwand.
 
-Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt zu sein. Neueste Geräte nutzen wie Smartphones die ARMx64 Prozessor-Architektur, was sie effizient und zugleich leistungsstark macht. Diese Aspekte macht sie ideal für den kontinuierlichen Betrieb von intensiven Aufgaben. SBC kommen in verschiedenen Formen, gewisse mehr und gewisse weniger geeignet für das Hosten von Cloud-Diensten. Dabei gibt es viele Möglichkeiten sie mit Erweiterungen auf gewisse Tasks abzustimmen.
+Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt zu sein. Neueste Geräte nutzen wie Smartphones die ARMx64 Prozessor-Architektur, was sie effizient und zugleich leistungsstark macht. Diese Aspekte macht sie ideal für den kontinuierlichen Betrieb von intensiven Aufgaben. SBC kommen in verschiedenen Formen, gewisse mehr und gewisse weniger geeignet für das Hosten von Cloud-Diensten. Dabei gibt es diverse Möglichkeiten sie mit Erweiterungen auf gewisse Aufgaben abzustimmen.
 
-Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem Cloud-Dienst machen könnte. Primär würde die Cloud als Kollaborationsplattform genutzt, mit der Fähigkeit als Ablage für unsere Fotos zu dienen, also werden eher kleine bis mittlere Dateien vom System gehandlet. Die Dienste, die den kollaborativen Aspekt ermöglichen, benötigen mehr Leistung als ein einfacher Datenspeicher.
+Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem Cloud-Dienst machen könnten. Primär würde die Cloud als Kollaborationsplattform genutzt, mit der Fähigkeit als Ablage für unsere Fotos zu dienen, also werden eher kleine (Dokumente) bis mittlere Dateien (Fotos) vom System verarbeitet. Die Dienste, die den kollaborativen Aspekt ermöglichen, benötigen mehr Leistung als ein einfacher Datenspeicher.
 
 Vergleich:
-Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. Der SBC könnte mit einem [2.5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) (45CHF) ergänzt werden.
+Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. Der SBC könnte mit einem [2.5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) (45CHF) ergänzt werden und die Bandbreite zu erweitern. Ein Gehäuse müsste selbst gebaut werden.
 
 | System            | Radxa Rock 5C 32Gb          | Terramaster F4-424  |
 | ----------------- | --------------------------- | ------------------- |
@@ -124,13 +124,13 @@ Hier wird das gewünsche SBC-System mit einem ähnlichen NAS-Gerät verglichen. 
 
 Wenn man die verschiedenen Typen von Speichermedien vergleicht, stellt man schnell fest, dass jede Option gewisse Vorteile mit sich bringt. Auf den ersten Blick mögen SSDs als offensichtliche Antwort erscheinen, was bei genauerer Analyse anders aussieht. SSDs mögen zwar schnell sein, das System ist jedoch auf die Transferrate des Ethernet Ports begrenzt und obwohl HDDs im Ruhezustand mehr Strom benötigen als SSDs, sind sie aufgrund des geringeren Preises günstiger auf die erwartete Laufzeit gesehen. Ideal wären also 2.5" Festplatten, da es jedoch nur Optionen mit SMR und nicht CMR gibt, fällt die Wahl auf 3.5" HDDs.
 
-| Medium (5x)               | 2.5" SSD      | 2.5" HDD  | 3.5" HDD    |
-| ------------------------- | ------------- | --------- | ----------- |
-| Preis                     | CHF 1305      | CHF 699   | **CHF 544** |
-| Leistungsaufnahme Standby | **~0.2W**     | ~1.0W     | ~2.5W       |
-| Leistungsaufnahme Last    | ~25W          | **~10W**  | ~25W        |
-| Lesegeschwindigkeit       | **22.4Gbps**  | 5.6Gbps   | 8.7Gbps     |
-| Schreibgeschwindigkeit    | **21.2Gbps**  | 5.6Gbps   | 8.7Gbps     |
+| Medium (5x)            | 2.5" SSD      | 2.5" HDD  | 3.5" HDD    |
+| ---------------------- | ------------- | --------- | ----------- |
+| Preis                  | CHF 1305      | CHF 699   | **CHF 544** |
+| Leistungsaufnahme Ruhe | **~0.2W**     | ~1.0W     | ~2.5W       |
+| Leistungsaufnahme Last | ~25W          | **~10W**  | ~25W        |
+| Schreibgeschwindigkeit | **21.2Gbps**  | 5.6Gbps   | 8.7Gbps     |
+| Lesegeschwindigkeit    | **22.4Gbps**  | 5.6Gbps   | 8.7Gbps     |
 
 ### Hauptserver
 
@@ -149,7 +149,7 @@ Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechen
 
 ### Backupserver
 
-Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle das dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt nur temporär zugeschaltet zu werden und hostet nur die essenziellen Dienste, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.
+Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle das dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt nur temporär zugeschaltet zu werden und stellt nur die essenziellen Dienste zur Verfügung, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.
 
 | Komponenten                                                                                                                           | Preis        |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -169,11 +169,11 @@ Dieser Abschnitt umfasst die Installation, das Einrichten und die Bedienung säm
 ### Armbian
 
 Beschreibung:
-SBCs verwenden im Grunde herkömmliche Operationssysteme. Jedoch schränkt die ARM-Architektur und der Mangel eines UEFI BIOS die Optionen etwas ein. Der Hauptunterschied dabei ist, das das OS direkt auf den Speicher kopiert werden muss. Dies ist über ein herkömmliches Installationsverfahren nicht möglich und es werden vorgefertigte Images benötigt, welche eine 1:1-Kopie eines systems sind.
+SBCs verwenden im Grunde herkömmliche Operationssysteme. Jedoch schränkt die ARM-Architektur und der Mangel eines UEFI BIOS die Optionen etwas ein. Der Hauptunterschied dabei ist, dass das OS direkt auf den Speicher kopiert werden muss. Dies ist über ein herkömmliches Installationsverfahren nicht möglich und es werden vorgefertigte Images benötigt, welche eine 1:1-Kopie eines Systems sind.
 
-Wie die meisten SBC-Hersteller stellt Radxa ein passendes OS-Image für den Rock 5C zur verfügung. Dieses ist allerdings aufgrund der graphischen Benutzeroberfläche und weiterer vorinstallierter Software nicht für unsere Zwecke geeignet.
+Wie die meisten SBC-Hersteller stellt Radxa ein passendes OS-Image für den Rock 5C zur Verfügung. Dieses ist allerdings aufgrund der graphischen Benutzeroberfläche und weiterer vorinstallierter Software nicht für unsere Zwecke geeignet.
 
-Das Armbian-Projekt entwickelt System-Images für diverse SBCs. Dabei gibt es meistens eine minimale Variante, welche perfekt für unsere Zwecke geeignet ist. Der Rock 5C ist sogar mit Platin-Support gelistet. Zusätzlich enthalten alle Armbian-Images das Armbian-Config Tool, welches hilft das System auf ein internes Medium zu kopieres, sowie einen Katalog an nützlicher Software enthält.
+Das Armbian-Projekt entwickelt System-Images für diverse SBCs. Dabei gibt es meistens eine minimale Variante, welche perfekt für unsere Zwecke geeignet ist. Der Rock 5C ist sogar mit Platin-Support gelistet. Zusätzlich enthalten alle Armbian-Images das Armbian-Config Tool, welches hilft das System auf ein internes Medium zu kopieren, sowie einen Katalog an nützlicher Software enthält.
 
 Installation:
 
