@@ -164,7 +164,7 @@ Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle das diese
 
 ## 3. System
 
-Dieser Abschnitt umfasst die Installation, das Einrichten und die Handhabung sämtlicher Software auf Systemebene.
+Dieser Abschnitt umfasst die Installation, das Einrichten und die Bedienung sämtlicher Software auf Systemebene.
 
 ### Armbian
 
@@ -212,7 +212,7 @@ Einrichtung:
 - Fernzugriff: Den Port 22/TCP im Router auf den Server weiterleiten, um Zugriff ausserhalb des LAN zu ermöglichen.
 - **Empfehlung** - SSH über VSCode nutzen: In VSCode 'Verbinden mit...' anwählen, Nutzer@Addresse und Passwort eingeben.
 
-Handhabung:
+Bedienung:
 
 ```sh
 ssh -h # Hilfe
@@ -251,7 +251,7 @@ Installation:
 Einrichtung:
 Infomaniak.com wird standardmässig erst ab Version 2.11.0 unterstützt. Für ältere Versionen muss eine Benutzerdefinierte Konfigration mit dem dyndns2 Protokoll angelegt werden (siehe ./inadyn.conf). Die Konfigurationsdatei befindet sich üblicherweise unter `/etc/inadyn.conf` und benötigt 600 Berechtigungen.
 
-Handhabung:
+Bedienung:
 Überprüfe die Syntax der Konfigurationsdatei mit `inadyn --check-config`
 Überprüfe die Funktionalität mit `inadyn -l debug --foreground --force`
 
