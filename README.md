@@ -1,6 +1,10 @@
 # TVR-Cloud
 
-Ziel dieses Repos ist es den Aufbau des TVR-Cloud-Servers zu dokumentieren. Die Inhalte umfassen Informationen zu Analysen von Alternativen, getroffenen Entscheidungen und Handhabung verschiedener Software. Jedes Kapitel behandelt einen Aspekt des Aufbaus.
+Der TV Reichenburg ist im stetigen Wachstum. Mit diesem Wachstum wird es immer schwieriger die Zusammenarbeit der einzelen Mitglieder ohne weiteres zu koordinieren. Unser aktuelles Vorgehen, das jeder seine Dateien auf dem eigenen Gerät, einem Drive, NAS oder sogar auf CDs speichert und physisch, per Mail oder per online Zugriff weitergibt, reicht meiner Meinung nicht mehr aus.
+
+Dieses Projekt entstand aus eigener kuriosität, sowie dem Bedürftnis unserem Verein eine optimale Basis zur Zusammenarbeit zu schaffen, um weiteren Wachstum zu vereinfachen.
+
+Ziel dieses Repos ist es alles zu dokumentieren was benötigt wird um ein TVR-Cloud-System zu betreiben. Die Inhalte umfassen Vergleiche verschiedener Optionen und entsprechende Empfehlungen/Entschlüsse, Beschreibungen zum Installieren, Aufsetzen, und Bedienen verschiedenster Software, Sicherheitsüberlegungen und Wartungshinweise.
 
 ## Inhalte
 
@@ -82,7 +86,19 @@ authentication  = true (für SMTP)
 
 ### Webseite
 
+Zu jeder Domain erhält man bei Infomaniak gratis eine statische Webseite mit 10Mb Speicher. Infomaniak verfügt auch über Möglichkeiten zur Anbindung einer Wix oder Wordpress Seite.
+
 ### Virtual Private Server
+
+VPS sind quasi Server die man Mieten kann. Die Vorteile dabei liegen darin, dass keine eigene Hardware und deren Wartung benötigt wird und das sie über Notstromsysteme, sowie eine starke Internetverbindung verfügen. Da unser Verein ein Ausfall des Servers verkraften kann, sind solche Systeme allerdings nicht notwendig und der Wartungsaufwand ist nach dem Zusammenbau relativ klein.
+
+Infomaniak's VPS-Angebot startet bei einem Preis von CHF 38/Monat, dabei verfügt das System über lediglich 250Gb Speicher und 12Gb RAM. Somit ist diese Lösung im Vergleich mit einem eigenen Server nicht besonders ansprechend.
+
+### Öffentliche Cloud
+
+Öffentliche Cloud Produkte wie Microsoft 365 oder Atlassian Cloud haben den Vorteil, dass man sich keine Gedanken weder über die Hardware noch die Software machen muss und man generell auf einen Supportdienstleister zurückgreifen kann, wenn etwas nicht funktioniert. Der Haken dabei ist der hohe Preis, welcher für nicht kommerzielle Organisationen kaum tragbar sind. Dabei wird trotzdem ein Systemadministrator benötigt, der sich mit dem Management der Cloud auseinandersetzt.
+
+Eine private Cloud hat den Vorteil, dass sie abgesehen von den Betriebskosten des Servers komplett kostenlos ist. Zusätzlich ist eine eigene Lösung flexibler und kann besser auf die Bedürfnisse angebasst werden.
 
 ## 2. Hardware
 
@@ -118,7 +134,7 @@ Wenn man die verschiedenen Typen von Speichermedien vergleicht, stellt man schne
 
 ### Hauptserver
 
-Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung, sowie Arbeitsspeicher benötigt.
+Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung, sowie Arbeitsspeicher benötigt. Die erwartete Laufzeit des Systems beläuft sich auf 5 Jahre.
 
 | Komponenten                                                                                                                           | Preis        |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -209,7 +225,7 @@ exit # Verbindung trennen
 [Referenz](https://openzfs.github.io/openzfs-docs/man/master/index.html)
 
 Beschreibung:
-Das Zettabyte-File-System stellt Werkzeuge für Storage-Pooling, Backups, Kompression, Verschlüsselung, RAID-Management und Speicherbeschleunigung zur Verfügung. 
+Das Zettabyte-File-System stellt Werkzeuge für Storage-Pooling, Backups, Kompression, Verschlüsselung, RAID-Management und Speicherbeschleunigung zur Verfügung.
 
 Installation:
 `armbian-config --cmd ZFS001`
@@ -227,7 +243,7 @@ Einrichtung:
 [Referenz](https://github.com/troglobit/inadyn)
 
 Beschreibung:
-Inadyn ist ein Client, der dazu dient automatisch die DNS-Weiterleitung zu aktualisieren. Dabei ermittelt er die öffentliche IP und leitet diese mit Authentifizierungsinformationen zum DDNS-Dienst weiter. 
+Inadyn ist ein Client, der dazu dient automatisch die DNS-Weiterleitung zu aktualisieren. Dabei ermittelt er die öffentliche IP und leitet diese mit Authentifizierungsinformationen zum DDNS-Dienst weiter.
 
 Installation:
 `apt install inadyn -y`
