@@ -67,7 +67,7 @@ backup_action() {
    update_subdomain $subdomain_cloud
 }
 
-# $1 - Aktuelle Uhrzeit
+# $1 - Current minute
 main_loop() {
     check_server $subdomain_backup $fail_count_backup $availability_backup $timeout_backup main_action
     if [ "$1" == "00" ]; then
@@ -79,7 +79,7 @@ main_loop() {
     fi
 }
 
-# $1 - Aktuelle Uhrzeit
+# $1 - Current minute
 backup_loop() {
     check_server $subdomain_main $fail_count_main $availability_main $timeout_main backup_action
     if [ "$1" == "00" ]; then
