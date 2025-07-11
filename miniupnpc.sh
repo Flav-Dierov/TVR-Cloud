@@ -16,8 +16,8 @@ timeout_backup=5 # Minutes to wait before marking backup as unavailable
 # Global Variables
 fail_count_main=0
 fail_count_backup=0
-availability_main=true
-availability_backup=true
+availability_main="true"
+availability_backup="true"
 
 # Updates the DNS record to point to the current IP
 # $1 - Subdomain to be updated
@@ -41,21 +41,21 @@ update_subdomain() {
 check_server() {
     if ping -c 1 "$1"$hostname > /dev/null 2>&1; then
         echo "[SUCCESS] $(date): Ping to \"$1$hostname\" was successful." >> miniupnpc_update.log
-        if [ "$3" = false ]; then
+        if [ "$3" = "false" ]; then
             echo "[INFO] $(date): \"$1$hostname\" is back online." >> miniupnpc_update.log
         fi
-        set "$3" true
-        set "$2" 0
+        set -- "$3" "true"
+        set -- "$2" 0
     else
-        (($2++))
-        echo "[WARNING] $(date): \"$1$hostname\" couldn't be reached for $2 times" >> miniupnpc_update.log
+        set -- "$2" $(( $2 + 1 ))
+        echo "[WARNING] $(date): \"$1$hostname\" couldn't be reached for $2 minutes" >> miniupnpc_update.log
     fi
-    if [ "$3" = false ]; then
+    if [ "$3" = "false" ]; then
         return
-    elif [ "$2" -ge "$4" ]; then
+    elif [ "$2" = "$4" ]; then
         echo "[ALERT] $(date): \"$1$hostname\" couldn't be reached for $2 minutes. Taking action..." >> miniupnpc_update.log
         $5
-        set -- "$3" false
+        set -- "$3" "false"
     fi
 }
 
@@ -70,10 +70,10 @@ backup_action() {
 # $1 - Current minute
 main_loop() {
     check_server $subdomain_backup $fail_count_backup $availability_backup $timeout_backup main_action
-    if [ "$1" == "00" ]; then
+    if [ "$1" = "00" ]; then
         update_cloud $subdomain_main
         update_subdomain $subdomain_backup
-        if [ "$availability_backup" = false ]; then
+        if [ "$availability_backup" = "false" ]; then
             main_action 
         fi 
     fi
@@ -84,7 +84,7 @@ backup_loop() {
     check_server $subdomain_main $fail_count_main $availability_main $timeout_main backup_action
     if [ "$1" == "00" ]; then
         update_subdomain $subdomain_main
-        if [ "$availability_main" = false ]; then
+        if [ "$availability_main" = "false" ]; then
             backup_action
         fi
     fi
@@ -99,13 +99,13 @@ update_ports() {
 while true; do
     current_minute=$(date +%M)
 
-    if [ "$current_system" == "main" ]; then
+    if [ "$current_system" = "main" ]; then
         main_loop "$current_minute"
-    elif [ "$current_system" == "backup" ]; then
+    elif [ "$current_system" = "backup" ]; then
         backup_loop "$current_minute"
     fi
 
-    if [ "$current_minute" == "00" ]; then
+    if [ "$current_minute" = "00" ]; then
         update_ports
     fi
 
