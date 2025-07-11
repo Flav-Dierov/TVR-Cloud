@@ -290,22 +290,6 @@ Bedienung:
 Ports für 7 Tage zum aktuellen System umleiten `upnpc -r <port> <protokoll> ...`  
 Externe IP ermitteln `external-ip`
 
-### Inadyn (redundant)
-
-Beschreibung:  
-Inadyn ist ein Client, der dazu dient automatisch die DNS-Weiterleitung zu aktualisieren. Dabei ermittelt er die öffentliche IP und leitet diese mit Authentifizierungsinformationen zum DDNS-Dienst weiter.
-
-Installation:  
-`apt install inadyn -y`
-
-Einrichtung:  
-Infomaniak.com wird standardmässig erst ab Version 2.11.0 unterstützt. Für ältere Versionen muss eine Benutzerdefinierte Konfigration mit dem dyndns2 Protokoll angelegt werden (siehe ./inadyn.conf). Die Konfigurationsdatei befindet sich üblicherweise unter `/etc/inadyn.conf` und benötigt 600 Berechtigungen.
-
-Bedienung:  
-[Inadyn Referenz](https://github.com/troglobit/inadyn)  
-Überprüfe die Syntax der Konfigurationsdatei mit `inadyn --check-config`  
-Überprüfe die Funktionalität mit `inadyn -l debug --foreground --force`
-
 ### Docker
 
 Beschreibung:  
