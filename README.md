@@ -365,7 +365,7 @@ Da als unterliegendes Dateisystem ZFS verwendet wird, empfiehlt es sich gewisse 
 ### Web
 
 Beschreibung:  
-Wir verwenden Caddy als Webserver. Caddy ist darauf ausgelegt möglichst einfach zum Bedienen und leichtgewichtig zu sein. Es ist nicht die populärste Wahl für einen Webserver, weshalb die meisten Beispiele für Nginx oder Apache gemacht werden. Nextcloud-Docker bietet zwar eine Imageversion mit integriertem Apache-Webserver, da aber so oder so ein weiterer Webserver als Reverse-Proxy konfiguriert wird, kann dieser den Apache-Webserver auch komplett ersetzen.
+Dieser Dienst ist ein Caddy-Webserver. Caddy ist darauf ausgelegt möglichst leichtgewichtig und einfach zum Bedienen zu sein. Es ist nicht die populärste Wahl für einen Webserver, weshalb die meisten Beispiele für Nginx oder Apache gemacht werden. Nextcloud-Docker bietet zwar eine Imageversion mit integriertem Apache-Webserver, da aber so oder so ein weiterer Webserver als Reverse-Proxy konfiguriert wird, kann dieser den Apache-Webserver auch komplett ersetzen.
 
 Einrichtung:
 
@@ -373,7 +373,20 @@ Einrichtung:
 
 ### Cache
 
+Beschreibung:  
+Dieser Dienst ist ein Redis Cache. Ein Cache beschleunigt Datenbankabfragen und mach somit den Cloud-Dienst performanter.
+
+Einrichtung:  
+Redis benötigt eine Einstellung, die auf Systemebene vorgenommen werden muss. Um diese zu tätigen `sudo sysctl -w vm.overcommit_memory=1`
+
 ### Office
+
+Beschreibung:  
+Dieser Dienst ist eine Onlyoffice-Documentserver-Instanz, der das kollaborative Bearbeiten von Office-Dokumenten in der Cloud ermöglicht. Im Gegensatzt zu Collabora, ist Onlyoffice darauf ausgelegt, die bestmögliche Funktionalität mit Microsoft-Formaten zu bieten.
+
+Einrichtung:  
+Da der Dokument-Dienst nur intern von der Nextcloud-Instant verwendet wird, dürfen Sicherheitseinstellungen deaktiviert werden. Dies vereinfacht die Einrichtung des Dienstes.
+https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755
 
 ## 5. Netzwerk
 

@@ -26,7 +26,7 @@ https://{$DOMAIN_CLOUD} {
 	# Prettify URLs
 	try_files {path} {path}/ /index.php{uri}
 
-	# Set security headers
+	# Security headers
 	header {
 		Permissions-Policy "interest-cohort=()"
 		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
@@ -90,4 +90,32 @@ https://{$DOMAIN_CLOUD} {
 	# handle_path /push/* {
 	# 	reverse_proxy unix//run/notify_push/notify_push.sock # (Have to figure out if this works)
 	# }
+}
+
+# Bypass HTTPS and security headers for local requests
+http://cloud, http://webserver {
+	@internal {
+		remote_ip 172.0.0.0/8
+    }
+    handle @internal {
+        encode
+		file_server
+		php_fastcgi cloud:9000
+		root * /var/www/html
+	
+		try_files {path} {path}/ /index.php{uri}
+
+		@immutable {
+			path *.css *.js *.mjs *.svg *.gif *.png *.jpg *.ico *.wasm *.tflite
+			query v=*
+		}
+		header @immutable Cache-Control "max-age=15778463, immutable"
+
+		@static {
+			path *.css *.js *.mjs *.svg *.gif *.png *.jpg *.ico *.wasm *.tflite
+			not query v=*
+		}
+		header @static Cache-Control "max-age=15778463"
+    }
+    respond "Access Denied" 403
 }

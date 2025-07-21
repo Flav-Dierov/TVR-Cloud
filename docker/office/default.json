@@ -1,0 +1,4 @@
+"request-filtering-agent" : {
+				"allowPrivateIPAddress": true,
+				"allowMetaIPAddress": true
+			},
