@@ -1,7 +1,7 @@
 <?php
 $CONFIG = array (
   'allow_user_to_change_display_name' => false,
-  'allowed_admin_ranges' => [],
+  // 'allowed_admin_ranges' => [],
   'debug' => false,
   'default_language' => 'de',
   'default_locale' => 'de_CH',
@@ -33,5 +33,4 @@ $CONFIG = array (
   array (
     0 => '172.0.0.0/8',
   ),
-  'upgrade.disable-web' => true,
 );
