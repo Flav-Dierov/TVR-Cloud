@@ -2,16 +2,16 @@
 # Reference: https://caddyserver.com/docs/caddyfile
 {
 	# Set the email for Let's Encrypt notifications
-	email {$EMAIL}
+	email <email>
 }
 
 # Redirect HTTP requests to HTTPS
-http://{$DOMAIN_CLOUD} {
-	redir https://{$DOMAIN_CLOUD}{uri} permanent
+http://<domain> {
+	redir https://<domain>{uri} permanent
 }
 
 # Handle HTTPS Requests for the Nextcloud URL
-https://{$DOMAIN_CLOUD} {
+https://<domain> {
 	encode
 	file_server
 	php_fastcgi cloud:9000
