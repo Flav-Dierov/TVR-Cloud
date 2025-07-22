@@ -2,7 +2,7 @@
 # Reference: https://caddyserver.com/docs/caddyfile
 {
 	# Set the email for Let's Encrypt notifications
-	email {$LETS_ENCRYPT_MAIL}
+	email {$EMAIL}
 }
 
 # Redirect HTTP requests to HTTPS
@@ -80,9 +80,10 @@ https://{$DOMAIN_CLOUD} {
 	header @static Cache-Control "max-age=15778463"
 
 	# Needed for Onlyoffice
-	handle_path /onlyoffice/* {
+	handle_path /docs/* {
 		reverse_proxy office:80 {
-			header_up X-Forwarded-Host {host}/onlyoffice
+			header_up X-Forwarded-Host {host}/docs
+			header_up X-Forwarded-Proto https
 		}
 	}
 
