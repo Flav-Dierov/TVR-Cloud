@@ -259,6 +259,16 @@ oder [Offizielle Anleitung](https://openzfs.github.io/openzfs-docs/Getting%20Sta
 
 Einrichtung:  
 
+Aktivieren von autostart für ZFS:
+```sh
+sudo systemctl enable zfs-import-cache.service
+sudo systemctl enable zfs-mount.service
+sudo systemctl enable zfs.target
+sudo systemctl start zfs-import-cache.service
+sudo systemctl start zfs-mount.service
+sudo systemctl start zfs.target
+```
+
 1. Erstellen eines Pools mit `zpool create <poolname> <RAID> <drive1> <drive2> <drive3> ...` RAID Optionen: mirror, raidz1, raidz2, raidz3, *empty*
 2. Erstellen eines Datensets mit `zfs create <poolname>/<datasetname>`
 3. Einstellen von Datensets `zfs set <wert> <poolname>/<datensetname>`
