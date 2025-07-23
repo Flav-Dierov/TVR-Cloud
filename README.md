@@ -258,25 +258,44 @@ Installation:
 oder [Offizielle Anleitung](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html#installation)
 
 Einrichtung:  
-Aktivieren von autostart für ZFS:
+1. ZFS aktivieren:
 ```sh
-sudo systemctl enable zfs-import-cache.service
-sudo systemctl enable zfs-mount.service
-sudo systemctl enable zfs.target
-sudo systemctl start zfs-import-cache.service
-sudo systemctl start zfs-mount.service
-sudo systemctl start zfs.target
+systemctl enable zfs.target
+systemctl enable zfs-import.target
+systemctl enable zfs-volumes.target
+systemctl disable zfs-import-scan.service
+systemctl enable zfs-import-cache.service
+systemctl enable zfs-volume-wait.service
 ```
 
-1. Erstellen eines Pools mit `zpool create <poolname> <RAID> <drive1> <drive2> <drive3> ...` [RAID Optionen](https://openzfs.github.io/openzfs-docs/man/master/7/zpoolconcepts.7.html)
+2. ZFS starten:
+```sh
+systemctl start zfs.target
+systemctl start zfs-import.target
+systemctl start zfs-volumes.target
+systemctl start zfs-import-cache.service
+systemctl start zfs-volume-wait.service
+```
+
+3. ZFS prüfen:
+```sh
+systemctl status zfs.target
+systemctl status zfs-import.target
+systemctl status zfs-volumes.target
+systemctl status zfs-import-scan.service
+systemctl status zfs-import-cache.service
+systemctl status zfs-volume-wait.service
+```
+
+4. Speicherpools erstellen mit `zpool create -R <Speicherpfad> <poolname> <RAID Option> <drive1> <drive2> <drive3> ...` [RAID Optionen](https://openzfs.github.io/openzfs-docs/man/master/7/zpoolconcepts.7.html)
    ::: warn
-Speichegeräte sollten nur mit ihrer UUID definiert werden, dies weil Geräte ansonsten beim Neustart verloren gehen können. Um alle UUIDs zu listen ls -lh /dev/disk/by-id/  
-[Arch Wiki](https://wiki.archlinux.org/title/ZFS#Creating_ZFS_pools)
+   Speichegeräte sollten nur mit ihrer UUID definiert werden, dies weil Geräte ansonsten beim Neustart verloren gehen können. Um alle UUIDs zu listen ls -lh /dev/disk/by-id/  
+   [Arch Wiki](https://wiki.archlinux.org/title/ZFS#Creating_ZFS_pools)
 
-:::
+  :::
 
-3. Erstellen eines Datensets mit `zfs create <poolname>/<datasetname>`
-4. Einstellen von Datensets `zfs set <wert> <poolname>/<datensetname>`
+5. Datensets erstellen mit `zfs create <poolname>/<datasetname>`
+6. Datensets einstellen mit`zfs set <wert> <poolname>/<datensetname>`
 
 Bedienung:  
 [OpenZFS Referenz](https://openzfs.github.io/openzfs-docs/man/master/index.html)
