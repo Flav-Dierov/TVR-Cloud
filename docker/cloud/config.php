@@ -2,6 +2,7 @@
 $CONFIG = array (
   'allow_user_to_change_display_name' => false,
   // 'allowed_admin_ranges' => [],
+  'check_for_working_htaccess' => true, // when not using Apache
   'debug' => false,
   'default_language' => 'de',
   'default_locale' => 'de_CH',
