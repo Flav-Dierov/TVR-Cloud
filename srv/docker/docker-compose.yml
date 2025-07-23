@@ -2,7 +2,7 @@ services:
   background:
     entrypoint: /cron.sh
     env_file: .env
-    image: nextcloud:production-fpm-alpine
+    image: nextcloud:31.0-fpm-alpine
     restart: always
     depends_on:
       - cache
@@ -12,7 +12,7 @@ services:
   cache:
     command: redis-server --requirepass $REDIS_HOST_PASSWORD
     env_file: .env
-    image: redis:alpine
+    image: redis:8.0-alpine
     restart: always
     volumes:
       - /mnt/zfs/cache/content:/data
@@ -20,7 +20,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
   cloud:
     env_file: .env
-    image: nextcloud:31.0.7-fpm-alpine
+    image: nextcloud:31.0-fpm-alpine
     restart: always
     depends_on:
       - cache
@@ -35,7 +35,7 @@ services:
       # Other volumes do not persist during updates!
   database:
     env_file: .env
-    image: mariadb:10.11 # Select NC compatible version
+    image: mariadb:10.11-jammy # Select NC compatible version
     restart: always
     volumes:
       - /mnt/zfs/database/config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
@@ -44,7 +44,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
   office:
     # env_file: .env
-    image: onlyoffice/documentserver
+    image: onlyoffice/documentserver:9.0
     restart: always
     environment:
       - JWT_ENABLED='false'
@@ -58,7 +58,7 @@ services:
       # - /mnt/zfs/office/logs:/var/log/onlyoffice
   webserver:
     env_file: .env
-    image: caddy:alpine
+    image: caddy:2.10-alpine
     restart: always
     depends_on:
       - cloud
