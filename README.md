@@ -27,8 +27,8 @@ Unter den grossen Schweizer Hostinganbietern gibt es grundsätzlich [Hostpoint.c
 | ------------------------ | ------------ | ------------ |
 | Kosten .ch Domainname    | CHF 10/Jahr  | CHF 15/Jahr  |
 | Kosten 10x E-Mail Nutzer | CHF 192/Jahr | CHF 200/Jahr |
-| Speicher Postfach        | unbegrenzt   | 15Gb/Nutzer  |
-| Drive-Speicher           | 15Gb/Nutzer  | 15Gb/Nutzer  |
+| Speicher Postfach        | unbegrenzt   | 15GB/Nutzer  |
+| Drive-Speicher           | 15GB/Nutzer  | 15GB/Nutzer  |
 | Standort                 | Genf         | Rapperswil   |
 
 ### Domain
@@ -119,11 +119,11 @@ Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem
 Vergleich:  
 Hier wird das gewünschte SBC-System mit einem ähnlichen NAS-Gerät verglichen. Der SBC könnte mit einem [2.5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) (45CHF) ergänzt werden und die Bandbreite erweitern. Ein Gehäuse müsste selbst gebaut werden.
 
-| System            | Radxa Rock 5C 32Gb         | Terramaster F4-424 |
+| System            | Radxa Rock 5C 32GB         | Terramaster F4-424 |
 | ----------------- | -------------------------- | ------------------ |
 | Schächte          | **5x SATA**                | 4x SATA            |
 | Ethernet          | 1x 1Gbps                   | **2x 2.5 Gbps**    |
-| Arbeitsspeicher   | **32Gb**                   | 8Gb                |
+| Arbeitsspeicher   | **32GB**                   | 8GB                |
 | Prozessor         | **4x 3.30GHz, 4x 2.31GHz** | 4x 3.40GHz         |
 | Leistungsaufnahme | **~8W**                    | ~17W               |
 | M.2 Cache         | Nein                       | **Ja**             |
@@ -146,13 +146,13 @@ Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechen
 
 | Komponenten                                                                                                                           | Preis       |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [1x Radxa Rock 5C (32Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                           | CHF 163     |
+| [1x Radxa Rock 5C (32GB)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                           | CHF 163     |
 | [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                               | CHF 4       |
 | [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37      |
-| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17      |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17      |
 | [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10      |
 | [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 22      |
-| [5x WD Red Plus (4Tb)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500     |
+| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500     |
 | **TOTAL**                                                                                                                             | **CHF 753** |
 
 ### Backupserver
@@ -161,13 +161,13 @@ Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle, dass die
 
 | Komponenten                                                                                                                           | Preis       |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [1x Radxa Rock 5C Lite (16Gb)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                      | CHF 86      |
+| [1x Radxa Rock 5C Lite (16GB)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                      | CHF 86      |
 | [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                               | CHF 4       |
 | [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37      |
-| [1x Radxa eMMC Module (32Gb)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17      |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17      |
 | [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10      |
 | [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 22      |
-| [5x WD Red Plus (4Tb)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500     |
+| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500     |
 | **TOTAL**                                                                                                                             | **CHF 676** |
 
 ### Zusammenbau
@@ -191,7 +191,7 @@ Installation:
 
 1. Herunterladen des [minimalen Armbian-Images](https://www.armbian.com/radxa-rock-5c/)
 2. Herunterladen und Installieren von [Balena Etcher](https://etcher.balena.io/)
-3. Eine Micro-SD (>1Gb) Karte mit dem PC verbinden
+3. Eine Micro-SD (>1GB) Karte mit dem PC verbinden
 4. Etcher als Administrator ausführen
 5. Das heruntergeladene Image und die SD wählen
 6. Flash!
@@ -287,15 +287,29 @@ systemctl status zfs-import-cache.service
 systemctl status zfs-volume-wait.service
 ```
 
-4. Speicherpools erstellen mit `zpool create -R <Speicherpfad> <poolname> <RAID Option> <drive1> <drive2> <drive3> ...` [RAID Optionen](https://openzfs.github.io/openzfs-docs/man/master/7/zpoolconcepts.7.html)
-   ::: warn
-   Speichegeräte sollten nur mit ihrer UUID definiert werden, dies weil Geräte ansonsten beim Neustart verloren gehen können. Um alle UUIDs zu listen ls -lh /dev/disk/by-id/  
-   [Arch Wiki](https://wiki.archlinux.org/title/ZFS#Creating_ZFS_pools)
+4. Speicherpool erstellen (`zpool create <Argumente> <Poolname> <RAID Option> <[drives]>`):
+```sh
+zpool create -m /mnt/zfs zfs raidz <drive1> <drive2> <drive3> <drive4> <drive5>
+```
 
-  :::
+::: info
+[RAID Optionen](https://openzfs.github.io/openzfs-docs/man/master/7/zpoolconcepts.7.html)
 
-5. Datensets erstellen mit `zfs create <poolname>/<datasetname>`
-6. Datensets einstellen mit`zfs set <wert> <poolname>/<datensetname>`
+:::
+
+::: warn
+Speichegeräte sollten nur mit ihrer UUID definiert werden, dies weil Geräte ansonsten beim Neustart verloren gehen können. Um alle UUIDs zu listen `ls -lh /dev/disk/by-id/`  
+[Arch Wiki](https://wiki.archlinux.org/title/ZFS#Creating_ZFS_pools)
+
+:::
+
+5. Datensets erstellen (`zfs create <Argumente> <Poolname>/<Datensetname>`):
+```sh
+zfs create /mnt/zfs/cache
+zfs create /mnt/zfs/cloud
+zfs create -o recordsize=16K -o primarycache=metadata -o logbias=throughput /mnt/zfs/database
+zfs create /mnt/zfs/webserver
+```
 
 Bedienung:  
 [OpenZFS Referenz](https://openzfs.github.io/openzfs-docs/man/master/index.html)
@@ -354,7 +368,7 @@ Um den Terminal in einem Container auszuführen `docker compose exec -it <contai
 
 ### .env
 
-Diese Datei enthält die notwendigen Umgebungsvariablen für unsere Dienste. Die leeren Werte müssen konfiguriert werden.
+Diese Datei enthält die notwendigen Umgebungsvariablen für die Dienste. Die leeren Werte müssen konfiguriert werden.
 
 ### Cloud
 
@@ -387,7 +401,7 @@ Docker umfasst eine grosse Community an Nutzern und viele Hersteller entwickeln 
 Einrichtung:  
 Die Konfiguration von Nextcloud befindet sich in der Datei `/var/www/html/config/config.php` innerhalb des Containers. Die Datei `/var/www/html/config/sample.config.php` enthält eine Referenz zu allen möglichen Optionen.
 
-### Data
+### Database
 
 Beschreibung:  
 Dieser Dienst ist eine Instanz von MariaDB. Die Nextcloud-Instanz benötigt eine Datenbank zum Speichern von Logindaten. Die MariaDB-Datenbank wurde aufgrund ihrer Gängigkeit gewählt. Alternativ dazu wäre es möglich, eine PostgreSQL-Datenbank einzurichten.
@@ -395,7 +409,7 @@ Dieser Dienst ist eine Instanz von MariaDB. Die Nextcloud-Instanz benötigt eine
 Einrichtung:  
 Da als unterliegendes Dateisystem ZFS verwendet wird, empfiehlt es sich, gewisse redundante Mechanismen in der Konfiguration auszuschalten. Zusätzlich gibt ZFS ein paar Empfehlungen für das Datenset, auf dem sich die Datenbank befindet: [Empfehlungen](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#mysql)
 
-### Web
+### Webserver
 
 Beschreibung:  
 Dieser Dienst ist ein Caddy-Webserver. Caddy ist darauf ausgelegt möglichst leichtgewichtig und einfach zum Bedienen zu sein. Es ist nicht die populärste Wahl für einen Webserver, weshalb die meisten Beispiele für Nginx oder Apache gemacht werden. Nextcloud-Docker bietet zwar eine Imageversion mit integriertem Apache-Webserver, da aber so oder so ein weiterer Webserver als Reverse-Proxy konfiguriert wird, kann dieser den Apache-Webserver auch komplett ersetzen.
@@ -423,7 +437,11 @@ Einrichtung:
 - Interne URLs in <office>/etc/onlyoffice/documentserver/default.json erlauben
 - Servicenamen als trusted domains in <cloud>/.../config.php erlauben
 - 'DocumentServerUrl' => '/docs/', 'DocumentServerInternalUrl' => 'http://office/', 'StorageUrl' => 'http://webserver/', in config.php definieren [Link](https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755)
+
+::: info
 Da der Dokument-Dienst nur intern von der Nextcloud-Instant verwendet wird, dürfen Sicherheitseinstellungen deaktiviert werden. Dies vereinfacht die Einrichtung des Dienstes.
+
+:::
 
 ## 5. Netzwerk
 
