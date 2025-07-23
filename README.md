@@ -258,7 +258,9 @@ Installation:
 oder [Offizielle Anleitung](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/index.html#installation)
 
 Einrichtung:  
-1. ZFS aktivieren:
+
+1. ZFS aktivieren:  
+
 ```sh
 systemctl enable zfs.target
 systemctl enable zfs-import.target
@@ -268,7 +270,8 @@ systemctl enable zfs-import-cache.service
 systemctl enable zfs-volume-wait.service
 ```
 
-2. ZFS starten:
+2. ZFS starten:  
+
 ```sh
 systemctl start zfs.target
 systemctl start zfs-import.target
@@ -277,7 +280,8 @@ systemctl start zfs-import-cache.service
 systemctl start zfs-volume-wait.service
 ```
 
-3. ZFS prüfen:
+3. ZFS prüfen:  
+
 ```sh
 systemctl status zfs.target
 systemctl status zfs-import.target
@@ -288,6 +292,7 @@ systemctl status zfs-volume-wait.service
 ```
 
 4. Speicherpool erstellen (`zpool create <Argumente> <Poolname> <RAID Option> <[drives]>`):
+
 ```sh
 zpool create -m /mnt/zfs zfs raidz <drive1> <drive2> <drive3> <drive4> <drive5>
 ```
@@ -304,6 +309,7 @@ Speichegeräte sollten nur mit ihrer UUID definiert werden, dies weil Geräte an
 :::
 
 5. Datensets erstellen (`zfs create <Argumente> <Poolname>/<Datensetname>`):
+
 ```sh
 zfs create /mnt/zfs/cache
 zfs create /mnt/zfs/cloud
@@ -432,11 +438,12 @@ Beschreibung:
 Dieser Dienst ist eine Onlyoffice-Documentserver-Instanz, der das kollaborative Bearbeiten von Office-Dokumenten in der Cloud ermöglicht. Im Gegensatzt zu Collabora, ist Onlyoffice darauf ausgelegt, die bestmögliche Funktionalität mit Microsoft-Formaten zu bieten.
 
 Einrichtung:  
+
 - Kein .env-File definieren
 - JWT_ENABLED='false' als environment definieren
-- Interne URLs in <office>/etc/onlyoffice/documentserver/default.json erlauben
-- Servicenamen als trusted domains in <cloud>/.../config.php erlauben
-- 'DocumentServerUrl' => '/docs/', 'DocumentServerInternalUrl' => 'http://office/', 'StorageUrl' => 'http://webserver/', in config.php definieren [Link](https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755)
+- Interne URLs in office/etc/onlyoffice/documentserver/default.json erlauben
+- Servicenamen als trusted domains in cloud/.../config.php erlauben
+- 'DocumentServerUrl' => '/docs/', 'DocumentServerInternalUrl' => '<http://office/>', 'StorageUrl' => '<http://webserver/>', in config.php definieren [Link](https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755)
 
 ::: info
 Da der Dokument-Dienst nur intern von der Nextcloud-Instant verwendet wird, dürfen Sicherheitseinstellungen deaktiviert werden. Dies vereinfacht die Einrichtung des Dienstes.
@@ -451,7 +458,7 @@ Da der Dokument-Dienst nur intern von der Nextcloud-Instant verwendet wird, dür
 
 ### Subnet
 
-### Webserver
+### Proxy
 
 ## 6. Sicherheit
 
