@@ -394,12 +394,12 @@ Beschreibung:
 Dieser Dienst ist eine Onlyoffice-Documentserver-Instanz, der das kollaborative Bearbeiten von Office-Dokumenten in der Cloud ermöglicht. Im Gegensatzt zu Collabora, ist Onlyoffice darauf ausgelegt, die bestmögliche Funktionalität mit Microsoft-Formaten zu bieten.
 
 Einrichtung:  
-1. Interne URLs in <office>/etc/onlyoffice/documentserver/default.json erlauben
-2. servicenamen als trusted domains in <cloud>/.../config.php zulassen
-3. JWT_ENABLED='false' in docker-compose setzen
-4. 'DocumentServerUrl' => '/docs/', 'DocumentServerInternalUrl' => 'http://office/', 'StorageUrl' => 'http://webserver/', in config.php
+- Kein .env-File definieren
+- JWT_ENABLED='false' als environment definieren
+- Interne URLs in <office>/etc/onlyoffice/documentserver/default.json erlauben
+- Servicenamen als trusted domains in <cloud>/.../config.php erlauben
+- 'DocumentServerUrl' => '/docs/', 'DocumentServerInternalUrl' => 'http://office/', 'StorageUrl' => 'http://webserver/', in config.php definieren [Link](https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755)
 Da der Dokument-Dienst nur intern von der Nextcloud-Instant verwendet wird, dürfen Sicherheitseinstellungen deaktiviert werden. Dies vereinfacht die Einrichtung des Dienstes.
-https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755
 
 ## 5. Netzwerk
 
