@@ -10,26 +10,22 @@ Customisation
 - The search page
 - Right click
 - Intros
+- Welcome
 - Calendar Notification
 - Admin Notification
 - Quota warning
-- Custom CSS
 
 Data
-- Group Folders, Workspace
-- (Group quota)
+- Group Folders
 - Default group quota
 
 Files
 - Extract
-- (PDF Viewer)
-- HTML Viewer
 - Metadata
-- Preview Generator
 
 Users
 - Auto Groups
-- Guests
+- (Guests)
 
 Work
 - Mail
@@ -40,9 +36,7 @@ Work
 - Tasks
 - Deck
 - Passwords
-- Memories
-- Office -> Onlyoffice
-- Draw.io integration
-- (Inventory)
-- (Money)
-- (Shiftplan/Shifts next)
+- Onlyoffice
+- Draw.io
+- Money
+- Shiftplan/Shifts next
