@@ -1,21 +1,21 @@
 services:
-  # backup:
-  #   entrypoint: /cron.sh
-  #   env_file: .env
-  #   image: nextcloud:production-fpm-alpine
-  #   restart: always
-  #   depends_on:
-  #     - cache
-  #     - database
-  #   volumes_from:
-  #     - cloud
+  background:
+    entrypoint: /cron.sh
+    env_file: .env
+    image: nextcloud:production-fpm-alpine
+    restart: always
+    depends_on:
+      - cache
+      - database
+    volumes_from:
+      - cloud
   cache:
     command: redis-server --requirepass $REDIS_HOST_PASSWORD
     env_file: .env
     image: redis:alpine
     restart: always
     volumes:
-      - /zfs/cache/content:/data
+      - /mnt/zfs/cache/content:/data
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
   cloud:
@@ -25,34 +25,37 @@ services:
     depends_on:
       - cache
       - database
-    volumes: # Other volumes do not persist during updates!
-      - /zfs/cloud/config:/var/www/html/config
-      - /zfs/cloud/custom_apps:/var/www/html/custom_apps
-      - /zfs/cloud/data:/var/www/html/data
-      - /zfs/cloud/themes:/var/www/html/themes
+    volumes:
+      - /mnt/zfs/cloud/config:/var/www/html/config
+      - /mnt/zfs/cloud/custom_apps:/var/www/html/custom_apps
+      - /mnt/zfs/cloud/data:/var/www/html/data
+      - /mnt/zfs/cloud/themes:/var/www/html/themes
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+      # Other volumes do not persist during updates!
   database:
     env_file: .env
     image: mariadb:10.11 # Select NC compatible version
     restart: always
     volumes:
-      - /zfs/database/config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
-      - /zfs/database/content:/var/lib/mysql
+      - /mnt/zfs/database/config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+      - /mnt/zfs/database/content:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
   office:
-    env_file: .env
-    image: onlyoffice/documentserver:latest
+    # env_file: .env
+    image: onlyoffice/documentserver
     restart: always
+    environment:
+      - JWT_ENABLED='false'
     expose:
       - "80"
-    volumes:
-      # - /zfs/office/cache:/var/lib/onlyoffice
-      # - /zfs/office/certs:/var/www/onlyoffice/Data/certs
-      - /zfs/office/config:/etc/onlyoffice/documentserver
-      # - /zfs/office/data:/var/www/onlyoffice/postgresql
-      - /zfs/office/logs:/var/log/onlyoffice
+    # volumes:
+      # - /mnt/zfs/office/cache:/var/lib/onlyoffice
+      # - /mnt/zfs/office/certs:/var/www/onlyoffice/Data/certs
+      # - /mnt/zfs/office/config:/etc/onlyoffice/documentserver
+      # - /mnt/zfs/office/data:/var/www/onlyoffice/postgresql
+      # - /mnt/zfs/office/logs:/var/log/onlyoffice
   webserver:
     env_file: .env
     image: caddy:alpine
@@ -64,9 +67,9 @@ services:
       - "443:443"
       - "443:443/udp"
     volumes:
-      - /zfs/webserver/data:/data
-      - /zfs/webserver/config:/config
-      - /zfs/webserver/caddy:/etc/caddy/
+      - /mnt/zfs/webserver/data:/data
+      - /mnt/zfs/webserver/config:/config
+      - /mnt/zfs/webserver/caddy:/etc/caddy/
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     volumes_from:
