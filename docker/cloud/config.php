@@ -2,7 +2,7 @@
 $CONFIG = array (
   'allow_user_to_change_display_name' => false,
   // 'allowed_admin_ranges' => [],
-  'check_for_working_htaccess' => true, // when not using Apache
+  'check_for_working_htaccess' => false, // when not using Apache
   'debug' => false,
   'default_language' => 'de',
   'default_locale' => 'de_CH',
@@ -17,7 +17,7 @@ $CONFIG = array (
   ),
   'htaccess.RewriteBase' => '/',
   'htaccess.IgnoreFrontController' => true,
-  'log_rotate_size' => 20 * 1024 * 1024, // 20MB for compatibility with VS Code
+  'log_rotate_size' => 20 * 1024 * 1024, // 20MB for VS Code compatibility
   'logtimezone' => 'Europe/Zurich',
   'maintenance' => false,
   'maintenance_window_start' => 0,
