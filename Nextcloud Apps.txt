@@ -1,42 +1,42 @@
-Nextcloud Apps:
-
-Administration
-- Ownership Transfer
-- OCC Web
-- Impersonate
-
-Customisation
-- Custom menu
-- The search page
-- Right click
+Anpassung:
 - Intros
+- (Custom Menu)
+
+Büro:
+- Calendar
+- Contacts
+- Deck
+- Mail
+- Money
+- Notes
+- Passwords
+- Tables
+- Tasks
+
+Dashboard:
 - Welcome
-- Calendar Notification
-- Admin Notification
-- Quota warning
 
-Data
-- Group Folders
+Dateien:
 - Default group quota
-
-Files
-- Extract
 - Metadata
+- Quota Warning
+- Team folders
 
-Users
-- Auto Groups
+Einbindung:
+- Draw.io
+- ONLYOFFICE
+
+Organisation:
+- Collectives
+- Polls
+- Teams
+
+Sicherheit:
 - (Guests)
 
-Work
-- Mail
-- Contacts
-- Calendar
-- Forms
-- Collectives
-- Tasks
-- Deck
-- Passwords
-- Onlyoffice
-- Draw.io
-- Money
-- Shiftplan/Shifts next
+Werkzeuge:
+- Announcement center
+- Auto Groups
+- Impersonate
+- OCC Web
+- Ownership Transfer
