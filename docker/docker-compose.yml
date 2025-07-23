@@ -15,7 +15,7 @@ services:
     image: redis:alpine
     restart: always
     volumes:
-      - ./cache/content:/data
+      - /zfs/cache/content:/data
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
   cloud:
