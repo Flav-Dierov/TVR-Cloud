@@ -24,12 +24,12 @@ availability_backup="true"
 update_subdomain() {
     ip=$(external-ip)
     if [ -z "$ip" ]; then
-      echo "[ERROR] - $(date): Failed to retrieve external IP." >> miniupnpc.log
+      echo "[ERROR] - $(date): Failed to retrieve external IP." >> /var/log/miniupnpc.log
       return
     fi
 
     curl "https://infomaniak.com/nic/update?hostname=$1$hostname&password=$password&username=$username&myip=$ip"
-    echo "[INFO] - $(date): Sent update request for \"$1$hostname\" with IP \"$ip\"" >> miniupnpc.log
+    echo "[INFO] - $(date): Sent update request for \"$1$hostname\" with IP \"$ip\"" >> /var/log/miniupnpc.log
 }
 
 # Pings the defined URL for availability and updates a counter
@@ -40,27 +40,27 @@ update_subdomain() {
 # $5 - Action to be performed
 check_server() {
     if ping -c 1 "$1"$hostname > /dev/null 2>&1; then
-        echo "[SUCCESS] $(date): Ping to \"$1$hostname\" was successful." >> miniupnpc.log
+        echo "[SUCCESS] $(date): Ping to \"$1$hostname\" was successful." >> /var/log/miniupnpc.log
         if [ "$3" = "false" ]; then
-            echo "[INFO] $(date): \"$1$hostname\" is back online." >> miniupnpc.log
+            echo "[INFO] $(date): \"$1$hostname\" is back online." >> /var/log/miniupnpc.log
         fi
         set -- "$3" "true"
         set -- "$2" 0
     else
         set -- "$2" $(( $2 + 1 ))
-        echo "[WARNING] $(date): \"$1$hostname\" couldn't be reached for $2 minutes" >> miniupnpc.log
+        echo "[WARNING] $(date): \"$1$hostname\" couldn't be reached for $2 minutes" >> /var/log/miniupnpc.log
     fi
     if [ "$3" = "false" ]; then
         return
     elif [ "$2" = "$4" ]; then
-        echo "[ALERT] $(date): \"$1$hostname\" couldn't be reached for $2 minutes. Taking action..." >> miniupnpc.log
+        echo "[ALERT] $(date): \"$1$hostname\" couldn't be reached for $2 minutes. Taking action..." >> /var/log/miniupnpc.log
         $5
         set -- "$3" "false"
     fi
 }
 
 main_action() {
-    echo "[ALERT] $(date): \"$subdomain_backup$hostname\" couldn't be reached for $fail_count_backup minutes." >> miniupnpc.log
+    echo "[ALERT] $(date): \"$subdomain_backup$hostname\" couldn't be reached for $fail_count_backup minutes." >> /var/log/miniupnpc.log
 }
 
 backup_action() {
