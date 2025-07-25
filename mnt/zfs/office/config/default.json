@@ -1,3 +1,4 @@
+https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755
 "request-filtering-agent" : {
 				"allowPrivateIPAddress": true,
 				"allowMetaIPAddress": true

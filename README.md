@@ -112,33 +112,41 @@ Eine private Cloud hat den Vorteil, dass sie abgesehen von den Betriebskosten de
 Beschreibung:  
 Für gewöhnlich werden Network-Attached-Storage-Geräte für das Hosten von privaten Cloud-Diensten verwendet. Sie verfügen üblicherweise über umfangreiche Möglichkeiten zur Speicherausstattung und Ethernet-Konnektivität. Hochwertigere Geräte verfügen zudem über M.2 Speicheranschlüsse, damit ein NVMe-Cache betrieben werden kann, was die Geschwindigkeit von Speicheroperationen beschleunigen kann. Sie sind deshalb ideal für das Ablagern und Anzeigen von grossen Mediendateien wie Filmen für wenige Nutzer geeignet. Der Nachteil von NAS-Geräten ist, dass sie nur über spärliche Rechenleistung und Arbeitsspeicher verfügen und bereits Einsteigermodelle einen beachtlichen Preis haben. Das macht sie ungeeignet zum Betreiben von Cloud-Diensten für viele Nutzer oder mit höherem Rechenaufwand.
 
-Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt zu sein. Neueste Geräte nutzen wie Smartphones die ARMx64 Prozessor-Architektur, was sie effizient und zugleich leistungsstark macht. Diese Aspekte machen sie ideal für den kontinuierlichen Betrieb von intensiven Aufgaben. SBC kommen in verschiedenen Formen, gewisse mehr und gewisse weniger geeignet für das Hosten von Cloud-Diensten. Dabei gibt es diverse Möglichkeiten, sie mit Erweiterungen auf gewisse Aufgaben abzustimmen.
+Single-Board-Computer-Systeme zielen darauf ab, möglichst preiswert und kompakt zu sein. Neueste Geräte nutzen wie Smartphones die ARMx64 Prozessor-Architektur, was sie effizient und zugleich leistungsstark macht. Diese Aspekte machen sie ideal für den kontinuierlichen Betrieb von intensiven Aufgaben. SBC kommen in verschiedenen Formen, gewisse mehr und gewisse weniger geeignet für das Hosten von Cloud-Diensten. Dabei gibt es diverse Möglichkeiten, sie mit Erweiterungen auf spezifische Aufgaben abzustimmen.
 
 Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem Cloud-Dienst machen könnten. Primär würde die Cloud als Kollaborationsplattform genutzt, mit der Fähigkeit als Ablage für unsere Fotos zu dienen, also werden eher kleine (Dokumente) bis mittlere Dateien (Fotos) vom System verarbeitet. Die Dienste, die den kollaborativen Aspekt ermöglichen, benötigen mehr Leistung als ein einfacher Datenspeicher.
 
 Vergleich:  
-Hier wird das gewünschte SBC-System mit einem ähnlichen NAS-Gerät verglichen. Der SBC könnte mit einem [2.5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) (45CHF) ergänzt werden und die Bandbreite erweitern. Ein Gehäuse müsste selbst gebaut werden.
+SBC: [Radxa Rock 5C 32GB](https://radxa.com/products/rock5/5c/)  
+NAS: [Terramaster F4-424](https://www.terra-master.com/global/products/homesoho-nas/f4-809.html)
 
-| System            | Radxa Rock 5C 32GB         | Terramaster F4-424 |
-| ----------------- | -------------------------- | ------------------ |
-| Schächte          | **5x SATA**                | 4x SATA            |
-| Ethernet          | 1x 1Gbps                   | **2x 2.5 Gbps**    |
-| Arbeitsspeicher   | **32GB**                   | 8GB                |
-| Prozessor         | **4x 3.30GHz, 4x 2.31GHz** | 4x 3.40GHz         |
-| Leistungsaufnahme | **~8W**                    | ~17W               |
-| M.2 Cache         | Nein                       | **Ja**             |
-| Preis             | **CHF 275**                | CHF 420            |
-| Gehäuse           | selbst gebaut              | **vorgefertigt**   |
+| System            | SBC                        | NAS              |
+| ----------------- | -------------------------- | ---------------- |
+| Schächte          | **5x SATA**                | 4x SATA          |
+| Ethernet          | 1x 1Gbps (erweiterbar)     | **2x 2.5 Gbps**  |
+| Arbeitsspeicher   | **32GB**                   | 8GB              |
+| Prozessor         | **4x 3.30GHz, 4x 2.31GHz** | 4x 3.40GHz       |
+| Leistungsaufnahme | **~8W**                    | ~17W             |
+| Cache             | **ZFS ARC**                | M.2 SSD          |
+| Preis             | **CHF 275**                | CHF 420          |
+| Gehäuse           | eigenbau                   | **vorgefertigt** |
 
-Wenn man die verschiedenen Typen von Speichermedien vergleicht, stellt man schnell fest, dass jede Option gewisse Vorteile mit sich bringt. Auf den ersten Blick mögen SSDs als offensichtliche Antwort erscheinen, was bei genauerer Analyse anders aussieht. SSDs mögen zwar schnell sein, das System ist jedoch auf die Transferrate des Ethernet-Ports begrenzt und obwohl HDDs im Ruhezustand mehr Strom benötigen als SSDs, sind sie aufgrund des geringeren Preises günstiger auf die erwartete Laufzeit gesehen. Ideal wären also 2.5" Festplatten, da es jedoch nur Optionen mit SMR und nicht CMR gibt, fällt die Wahl auf 3.5" HDDs.
+Um die Bandbreite zu erhöhen, kann ein [2.5Gbps Ethernet Adapter (45CHF)](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) verbaut werden, falls dies benötigt wird. Das ARC verwendet freien Arbeitsspeicher um Daten zu cachen. Ein Gehäuse müsste selbst gebaut werden. Unter dem Strich ist der SBC leistungsstärker und preiswerter als ein NAS, weshalb er favourisiert wird.
 
-| Medium (5x)            | 2.5" SSD     | 2.5" HDD | 3.5" HDD    |
-| ---------------------- | ------------ | -------- | ----------- |
-| Preis                  | CHF 1305     | CHF 699  | **CHF 544** |
-| Leistungsaufnahme Ruhe | **~0.2W**    | ~1.0W    | ~2.5W       |
-| Leistungsaufnahme Last | ~25W         | **~10W** | ~25W        |
-| Schreibgeschwindigkeit | **21.2Gbps** | 5.6Gbps  | 8.7Gbps     |
-| Lesegeschwindigkeit    | **22.4Gbps** | 5.6Gbps  | 8.7Gbps     |
+SSD: [Samsung 870 EVO](https://www.samsung.com/ch/memory-storage/sata-ssd/mz-77e4t0b-eu/)  
+HDD: [WD Red Plus](https://www.westerndigital.com/products/internal-drives/wd-red-plus-sata-3-5-hdd?sku=WD40EFPX)
+
+| Medium (5x 4TB)        | SSD            | HDD            |
+| ---------------------- | -------------- | -------------- |
+| Preis                  | CHF 1300       | **CHF 500**    |
+| Haltbarkeit            | **5-10 Jahre** | 3-5 Jahre      |
+| Ausfall                | Spontan        | **Allmählich** |
+| Leistungsaufnahme Ruhe | **~0.2W**      | ~1.5W          |
+| Leistungsaufnahme Last | ~25.0W         | **~23.5W**     |
+| Schreibgeschwindigkeit | **21.2Gbps**   | 7.2Gbps        |
+| Lesegeschwindigkeit    | **22.4Gbps**   | 7.2Gbps        |
+
+Schreib- und Lesegeschwindigkeiten sind inkonsequent, weil das System durch die verfügbare Internetleitung limitiert wird. Auch der Stromverbrauch ist inkonsequent, da die Strompreise auf die erwartete Lebenszeit kaum einen Unterschied machen. Die Haltbarkeit ist bei SSDs schwer einzuschätzen, da sie vom Nutzungsverhalten abhängt, sollte aber bei geringer Nutzung länger sein als HDDs. Hier wäre die Rechnung lediglich Kosten/Lebensdauer und Egal ob man pessimistisch oder optimistisch rechnet sind HDDs günstiger, was diese Wahl zum Favouriten macht.
 
 ### Hauptserver
 
@@ -203,40 +211,43 @@ Nun sollte das System automatisch starten und als nächstes die Erstellung der N
 
 1. Nutzernamen wählen
 2. Passwort wählen
+3. System auf internen Speicher kopieren `armbian-config --cmd STO001`
+   - BTRFS wählen
+4. Neu starten
 
-::: warn
+::: warn  
 Es ist bei der Wahl des Passworts zu bedenken, dass standardmässig das QWERTY-Tastatur-Layout festgelegt ist.
 
 :::
 
-::: info
-Verwende zum Ändern des Tastaturlayouts `dpkg-reconfigure keyboard-configuration`
-
-Verwende zum Ändern des (Root-)Passworts `(sudo) passwd`
-
-:::
-
-Nachdem die Nutzerkonten erstellt wurden, kann das System mit dem Befehl `armbian-config --cmd STO001` auf ein internes Medium kopiert werden. Als Dateisystem empfiehlt sich BTRFS. Im Anschluss muss das System neu gestartet werden.
-
 Bedienung:  
 [Armbian-Config Referenz](https://docs.armbian.com/User-Guide_Armbian-Config/)
+
+```sh
+dpkg-reconfigure keyboard-configuration # Tastaturlayout einstellen
+<sudo> passwd # (Root) Passwort ändern
+```
 
 ### OpenSSH
 
 Beschreibung:  
-Das 'Secure Shell'-Protokoll erlaubt den sicheren Zugriff auf die Konsole eines anderen Gerätes. Damit ist es möglich, das gesamte Gerät aus der Ferne zu bedienen, vorausgesetzt es läuft und ist mit dem Internet verbunden. Grundsätzlich sollte SSH auf jedem Armbian-System vorinstalliert sein.
+Das 'Secure Shell'-Protokoll erlaubt den sicheren Zugriff auf die Konsole eines anderen Gerätes. Damit ist es möglich, das gesamte Gerät aus der Ferne zu bedienen, vorausgesetzt es läuft und ist mit dem Internet verbunden. Für gewöhnlich ist SSH auf jedem Armbian-System bereits vorinstalliert.
 
 Installation:  
 `apt install openssh-server -y`
 
 Einrichtung:  
 
-- Root-Login de-/aktivieren: `armbian-config --cmd ACC001/ACC002`
-- Passwort-Login de-/aktivieren: `armbian-config --cmd ACC003/ACC004`
-- Schlüssel-Login de-/aktivieren: `armbian-config --cmd ACC005/ACC006`
-- Einmaliges Passwort de-/aktivieren: `armbian-config --cmd ACC007/ACC008`
-- Fernzugriff: Den Port 22/TCP im Router auf den Server weiterleiten, um Zugriff ausserhalb des LAN zu ermöglichen.
-- **Empfehlung** - SSH über VSCode nutzen: In VSCode 'Verbinden mit...' anwählen, Nutzer@Adresse und Passwort eingeben.
+```sh
+armbian-config --cmd ACC001 # Root-Login deaktivieren
+armbian-config --cmd ACC002 # Root-Login aktivieren
+armbian-config --cmd ACC003 # Passwort-Login deaktivieren
+armbian-config --cmd ACC004 # Passwort-Login aktivieren
+armbian-config --cmd ACC005 # Schlüssel-Login deaktivieren
+armbian-config --cmd ACC006 # Schlüssel-Login aktivieren
+armbian-config --cmd ACC007 # Einmaliges Passwort deaktivieren
+armbian-config --cmd ACC008 # Einmaliges Passwort aktivieren
+```
 
 Bedienung:  
 [OpenSSH Referenz](https://www.openssh.com/manual.html)
@@ -259,7 +270,7 @@ oder [Offizielle Anleitung](https://openzfs.github.io/openzfs-docs/Getting%20Sta
 
 Einrichtung:  
 
-1. ZFS aktivieren:  
+- ZFS aktivieren:  
 
 ```sh
 systemctl enable zfs.target
@@ -270,7 +281,7 @@ systemctl enable zfs-import-cache.service
 systemctl enable zfs-volume-wait.service
 ```
 
-2. ZFS starten:  
+- ZFS starten:  
 
 ```sh
 systemctl start zfs.target
@@ -280,7 +291,7 @@ systemctl start zfs-import-cache.service
 systemctl start zfs-volume-wait.service
 ```
 
-3. ZFS prüfen:  
+- ZFS prüfen:  
 
 ```sh
 systemctl status zfs.target
@@ -291,24 +302,22 @@ systemctl status zfs-import-cache.service
 systemctl status zfs-volume-wait.service
 ```
 
-4. Speicherpool erstellen (`zpool create <Argumente> <Poolname> <RAID Option> <[drives]>`):
+Bedienung:  
+[OpenZFS Referenz](https://openzfs.github.io/openzfs-docs/man/master/index.html)
+
+Speicherpool erstellen (`zpool create <Argumente> <Poolname> <RAID> <[Medien]>`):
 
 ```sh
-zpool create -m /mnt/zfs zfs raidz <drive1> <drive2> <drive3> <drive4> <drive5>
+zpool create -m /mnt/zfs zfs raidz <Medium1> <Medium2> <Medium3> <Medium4> <Medium5>
 ```
 
-::: info
-[RAID Optionen](https://openzfs.github.io/openzfs-docs/man/master/7/zpoolconcepts.7.html)
-
-:::
-
-::: warn
-Speichegeräte sollten nur mit ihrer UUID definiert werden, dies weil Geräte ansonsten beim Neustart verloren gehen können. Um alle UUIDs zu listen `ls -lh /dev/disk/by-id/`  
+::: warn  
+Speichegeräte sollten nur mit ihrer UUID definiert werden, dies weil die Pfade erst nach dem Systemstart festgelegt werden und ändern können, dadurch könnten Daten verloren gehen. Um alle UUIDs zu listen `ls -lh /dev/disk/by-id/`  
 [Arch Wiki](https://wiki.archlinux.org/title/ZFS#Creating_ZFS_pools)
 
 :::
 
-5. Datensets erstellen (`zfs create <Argumente> <Poolname>/<Datensetname>`):
+Datensets erstellen (`zfs create <Argumente> <Poolname>/<Datensetname>`):
 
 ```sh
 zfs create /mnt/zfs/cache
@@ -317,8 +326,15 @@ zfs create -o recordsize=16K -o primarycache=metadata -o logbias=throughput /mnt
 zfs create /mnt/zfs/webserver
 ```
 
-Bedienung:  
-[OpenZFS Referenz](https://openzfs.github.io/openzfs-docs/man/master/index.html)
+### Sanoid
+
+Beschreibung:  
+Sanoid hilft dient zur Erstellung von Backups.
+
+### Syncoid
+
+Beschreibung:  
+Syncoid hilft zum Synchronisieren von Geräten.
 
 ### MiniUPnPc
 
@@ -364,22 +380,22 @@ Bedienung:
 ## 4. Dienste
 
 Beschreibung:  
-Docker Compose vereinfacht das Management von mehreren Containern und erlaubt, alle Dienste mit einem Befehl zu starten. Dabei legt die 'docker-compose.yml'-Datei fest, wie die Container miteinander und mit dem System interagieren.
+In Docker werden individuelle Dienste, die üblicherweise einen eigenen Server haben, in sogenannte Container verpackt. Docker Compose vereinfacht das Management von mehreren Containern und erlaubt, alle mit einem Befehl zu starten. Dabei legt die 'docker-compose.yml'-Datei fest, wie die Container miteinander und mit dem System interagieren.
 
 Bedienung:  
 [Docker Compose Referenz](https://docs.docker.com/reference/compose-file/)
 
-Um die Dienste im Hintergrund zu starten, im Verzeichnis der Compose-Datei `docker compose up -d`  
+Um die Container im Hintergrund zu starten, im Verzeichnis der Compose-Datei `docker compose up -d`  
 Um den Terminal in einem Container auszuführen `docker compose exec -it <containername> sh`
 
 ### .env
 
-Diese Datei enthält die notwendigen Umgebungsvariablen für die Dienste. Die leeren Werte müssen konfiguriert werden.
+Diese Datei enthält die notwendigen Umgebungsvariablen für die Container. Die leeren Werte müssen frisch konfiguriert werden.
 
 ### Cloud
 
 Beschreibung:  
-Dieser Dienst ist eine Nextcloud-Instanz. Nextcloud ist ein Open-Source Clouddienst zum selber Hosten und wird von der Nextcloud GmbH in Deutschland entwickelt. Es bietet einen grossen Katalog an Apps, um die Funktionalität der Cloud zu erweitern. Nextcloud gibt es in unterschiedlichen Installationsmethoden:
+Dieser Container ist eine Nextcloud-Instanz. Nextcloud ist ein Open-Source Clouddienst zum selber Hosten und wird von der Nextcloud GmbH in Deutschland entwickelt. Es bietet einen grossen Katalog an Apps, um die Funktionalität der Cloud zu erweitern. Nextcloud gibt es in unterschiedlichen Installationsmethoden:
 
 - Nextcloud All-in-One - Ein Dockerimage, das darauf abzielt, möglichst einfach zu bedienen zu sein. Es enthält diverse Dienste bereits vorkonfiguriert und kann diese mit einem Knopfdruck zuschalten.
 - Nextcloud Pi - Ähnlich wie bei AiO, wird Nextcloud und alle Abhängigkeiten durch die Installation vorkonfiguriert. Dabei wird alles direkt auf das System installiert.
@@ -394,7 +410,7 @@ Vergleich:
 | Dokumentation | ***   | *    | ****   | *****  |
 | Bedienbarkeit | ***** | N/A  | *      | ***    |
 | Performance   | **    | **** | *****  | ***    |
-| Support       | ***** | *    | *****  | ***    |
+| Support       | ****  | *    | *****  | ***    |
 
 AiO fällt aufgrund der limitierten Nutzerzahl leider aus dem Rennen, obwohl diese Variante am einfachsten aufzusetzen wäre, da das System darauf ausgelegt sein soll, für unseren gesamten Verein verfügbar zu sein.
 
@@ -405,29 +421,58 @@ Nextcloud Server wäre eine mögliche Option, da das System primär für diesen 
 Docker umfasst eine grosse Community an Nutzern und viele Hersteller entwickeln ihre eigenen Containerimages. Dadurch finden sich enorm viele Ressourcen im Internet. Dazu kommt, dass Container bereits vorkonfiguriert sind und somit ein Grossteil des Aufwandes zur Inbetriebnahme entfällt. Diese Eigenschaften machen die Installation mit Docker zum Favorit.
 
 Einrichtung:  
-Die Konfiguration von Nextcloud befindet sich in der Datei `/var/www/html/config/config.php` innerhalb des Containers. Die Datei `/var/www/html/config/sample.config.php` enthält eine Referenz zu allen möglichen Optionen.
+Die Dateien unter `/mnt/zfs/cloud/config/` im äquivalenten Verzeichnis ablegen.
+
+Die Konfiguration von Nextcloud befindet sich im Verzeichnis `/var/www/html/config/` innerhalb des Containers. Die Standardkonfigurationsdatei `config.php` kann mit weiteren Konfigurationsdateien mit Namensformat `<name>.config.php` ergänzt werden. Die Datei `/var/www/html/config/config.sample.php` enthält eine Referenz zu allen möglichen Optionen.
+
+Bedienung:  
+Im Webinterface können Nutzer die Teil der 'admin'-Gruppe sind unter 'Menu > Administrationseinstellungen' alle weiteren Einstellungen finden.
 
 ### Database
 
 Beschreibung:  
-Dieser Dienst ist eine Instanz von MariaDB. Die Nextcloud-Instanz benötigt eine Datenbank zum Speichern von Logindaten. Die MariaDB-Datenbank wurde aufgrund ihrer Gängigkeit gewählt. Alternativ dazu wäre es möglich, eine PostgreSQL-Datenbank einzurichten.
+Dieser Container ist eine Instanz von MariaDB. Die Nextcloud-Instanz benötigt eine Datenbank zum Speichern von Login- und Metadaten. Die MariaDB-Datenbank wurde aufgrund ihrer Gängigkeit gewählt. Alternativ dazu wäre es möglich, eine PostgreSQL-Datenbank einzurichten.
 
 Einrichtung:  
+Die Datei `/mnt/zfs/database/config/my.cnf` im äquivalenten Verzeichnis ablegen.
+
+::: info  
 Da als unterliegendes Dateisystem ZFS verwendet wird, empfiehlt es sich, gewisse redundante Mechanismen in der Konfiguration auszuschalten. Zusätzlich gibt ZFS ein paar Empfehlungen für das Datenset, auf dem sich die Datenbank befindet: [Empfehlungen](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#mysql)
+
+:::
+
+::: warn  
+Gewisse Einstellungen, die vom der ZFS-Referenz vorgeschlagen werden sind veraltet. In der Datei `/mnt/zfs/database/config/my.cnf` wurde dies berücksichtigt.
+
+:::
 
 ### Webserver
 
 Beschreibung:  
-Dieser Dienst ist ein Caddy-Webserver. Caddy ist darauf ausgelegt möglichst leichtgewichtig und einfach zum Bedienen zu sein. Es ist nicht die populärste Wahl für einen Webserver, weshalb die meisten Beispiele für Nginx oder Apache gemacht werden. Nextcloud-Docker bietet zwar eine Imageversion mit integriertem Apache-Webserver, da aber so oder so ein weiterer Webserver als Reverse-Proxy konfiguriert wird, kann dieser den Apache-Webserver auch komplett ersetzen.
+Dieser Container ist ein Caddy-Webserver. Caddy ist darauf ausgelegt möglichst leichtgewichtig und einfach zum Bedienen zu sein. Es ist nicht die populärste Wahl für einen Webserver, weshalb die meisten Beispiele für Nginx oder Apache gemacht werden. Nextcloud-Docker bietet zwar eine Imageversion mit integriertem Webserver, hier wird allerdings die Variante ohne gewählt, weil ein separater Webserver benötigt wird.
 
-Einrichtung:
+Einrichtung:  
+[Referenz](https://caddyserver.com/docs/caddyfile)
 
-### Backup
+Die Datei `/mnt/zfs/webserver/caddy/Caddyfile` im äquivalenten Verzeichnis ablegen.
+
+Jegliche Konfiguration wird im Caddyfile vorgenommen, der Container muss im Anschluss neu gestartet werden.
+
+### Background
+
+Beschreibung:  
+Dieser Container ist im Grunde eine Kopie des Cloud-Containers. Er ist darür gemacht Hintergrundaufträge wie Indexing oder Analysen unabhängig von Cloud-Container zu auszuführen. Dieser Container benötigt die selbe Docker-Compose-Konfiguration wie der Cloud Container.
+
+Einrichtung:  
+In der Cloud unter 'Menu > Administrationseinstellungen > Grundeinstellungen > Hintergrundaufgaben' muss Cron ausgewählt werden. Falls der Background Container nicht funktioniert, wird die Cloud nach einer gewissen Zeit eine Warnung anzeigen.
+
+Bedienung:  
+Nextcloud nimmt selber Einstellungen vor.
 
 ### Cache
 
 Beschreibung:  
-Dieser Dienst ist ein Redis Cache. Ein Cache beschleunigt Datenbankabfragen und mach somit den Cloud-Dienst performanter.
+Dieser Container ist ein Redis Cache. Ein Cache beschleunigt Datenbankabfragen und macht die Cloud somit performanter.
 
 Einrichtung:  
 Redis benötigt eine Einstellung, die auf Systemebene vorgenommen werden muss. Um diese zu tätigen `sudo sysctl -w vm.overcommit_memory=1`
@@ -435,18 +480,24 @@ Redis benötigt eine Einstellung, die auf Systemebene vorgenommen werden muss. U
 ### Office
 
 Beschreibung:  
-Dieser Dienst ist eine Onlyoffice-Documentserver-Instanz, der das kollaborative Bearbeiten von Office-Dokumenten in der Cloud ermöglicht. Im Gegensatzt zu Collabora, ist Onlyoffice darauf ausgelegt, die bestmögliche Funktionalität mit Microsoft-Formaten zu bieten.
+Dieser Container ist eine Onlyoffice-Documentserver-Instanz, der das kollaborative Bearbeiten von Office-Dokumenten in der Cloud ermöglicht. Im Gegensatzt zu Collabora, ist Onlyoffice darauf ausgelegt, die bestmögliche Funktionalität mit Microsoft-Formaten zu bieten.
 
 Einrichtung:  
 
 - Kein .env-File definieren
-- JWT_ENABLED='false' als environment definieren
-- Interne URLs in office/etc/onlyoffice/documentserver/default.json erlauben
-- Servicenamen als trusted domains in cloud/.../config.php erlauben
-- 'DocumentServerUrl' => '/docs/', 'DocumentServerInternalUrl' => '<http://office/>', 'StorageUrl' => '<http://webserver/>', in config.php definieren [Link](https://community.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755)
+- `JWT_ENABLED='false'` als 'environment' definieren
+- Interne URLs in `<office>/etc/onlyoffice/documentserver/default.json` erlauben
+- Servicenamen als trusted domains in Nextclouds config.php erlauben
+- In Nextclouds config.php folgende Einstellungen definieren:  
+
+```php
+'DocumentServerUrl' => '/docs/'
+'DocumentServerInternalUrl' => 'http://office/'
+'StorageUrl' => 'http://webserver/'
+```
 
 ::: info
-Da der Dokument-Dienst nur intern von der Nextcloud-Instant verwendet wird, dürfen Sicherheitseinstellungen deaktiviert werden. Dies vereinfacht die Einrichtung des Dienstes.
+Da der Dokument-Dienst nur intern von der Nextcloud-Instanz verwendet wird, dürfen Sicherheitseinstellungen deaktiviert werden. Dies vereinfacht die Einrichtung des Dienstes.
 
 :::
 
@@ -506,12 +557,16 @@ Ziel:
 Härtung des HTTPS-Zugriffs und Einschränken von zugänglichen Dateien.
 
 Umsetzung:  
-Den Reverse-Proxy-Dienst entsprechend konfigurieren.
+Den Webserver entsprechend konfigurieren.
+
+- Verzeichnisse die durch Nutzer nicht erreicht werden müssen sperren.
+- Header nach Empfehlungen von Nextcloud einrichten.
+- HTTP-Anfragen auf HTTPS umleiten.
 
 ### Datenträgerverschlüsselung
 
 Ziel:  
-Schutz der Daten bei Verlust des Gerätes.
+Schutz der Daten bei Diebstahl des Gerätes.
 
 Umsetzung:  
 Kann in ZFS eingestellt werden.
@@ -519,7 +574,7 @@ Kann in ZFS eingestellt werden.
 ### Datenträgerredundanz
 
 Ziel:  
-Schutz der Daten für den Fall, dass ein Datenträger kaputt geht.
+Schutz der Daten bei Ausfall eines Datenträgers.
 
 Umsetzung:  
 In ZFS einen Pool mit RAID konfigurieren.
@@ -529,7 +584,16 @@ In ZFS einen Pool mit RAID konfigurieren.
 Ziel:  
 Die Funktionalität des Dienstes bei Ausfall des primären Servers aufrecht erhalten.
 
+Umsetzung:  
+Ein zweites gespiegeltes Gerät in einem anderen Netzwerk einrichten.
+
 ### Wiederherstellungspunkte
+
+Ziel:  
+Schutz vor fehlerhaften Einstellungen und Updates.
+
+Umsetzung:  
+
 
 ### Rootless Docker
 
@@ -538,3 +602,5 @@ Die Funktionalität des Dienstes bei Ausfall des primären Servers aufrecht erha
 ### Sicherheitsschlüssel
 
 ## 7. Wartung
+
+**Empfehlung** - SSH über VSCode nutzen: In VSCode 'Verbinden mit...' anwählen, Nutzer@Adresse und Passwort eingeben.
