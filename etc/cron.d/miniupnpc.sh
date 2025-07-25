@@ -13,11 +13,30 @@ current_system="main" # "main" or "backup"
 timeout_main=5 # Minutes to wait before marking main as unavailable
 timeout_backup=5 # Minutes to wait before marking backup as unavailable
 
-# Global Variables
-fail_count_main=0
-fail_count_backup=0
-availability_main="true"
-availability_backup="true"
+# State file for mutable variables
+state_file="/var/tmp/miniupnpc.state"
+
+# Loads state variables from file
+load_states() {
+    if [ -f "$state_file" ]; then
+        source "$state_file"
+    else
+        fail_count_main=0
+        fail_count_backup=0
+        availability_main="true"
+        availability_backup="true"
+    fi
+}
+
+# Saves state variables to file
+save_states() {
+    cat > "$state_file" <<EOF
+fail_count_main=$fail_count_main
+fail_count_backup=$fail_count_backup
+availability_main=$availability_main
+availability_backup=$availability_backup
+EOF
+}
 
 # Updates the DNS record to point to the current IP
 # $1 - Subdomain to be updated
@@ -33,29 +52,30 @@ update_subdomain() {
 }
 
 # Pings the defined URL for availability and updates a counter
-# $1 - Subdomain to be checked
-# $2 - Counter to be updated
-# $3 - Availability to be updated
-# $4 - Timeout to be used
-# $5 - Action to be performed
 check_server() {
-    if ping -c 1 "$1"$hostname > /dev/null 2>&1; then
-        echo "[SUCCESS] $(date): Ping to \"$1$hostname\" was successful." >> /var/log/miniupnpc.log
-        if [ "$3" = "false" ]; then
-            echo "[INFO] $(date): \"$1$hostname\" is back online." >> /var/log/miniupnpc.log
+    local subdomain=$1
+    local counter=$2
+    local availability=$3
+    local timeout=$4
+    local action=$5
+    
+    if ping -c 1 "$subdomain"$hostname > /dev/null 2>&1; then
+        echo "[SUCCESS] $(date): Ping to \"$subdomain$hostname\" was successful." >> /var/log/miniupnpc.log
+        if [ "$availability" = "false" ]; then
+            echo "[INFO] $(date): \"$subdomain$hostname\" is back online." >> /var/log/miniupnpc.log
         fi
-        set -- "$3" "true"
-        set -- "$2" 0
+        set -- "$availability" "true"
+        set -- "$counter" 0
     else
-        set -- "$2" $(( $2 + 1 ))
-        echo "[WARNING] $(date): \"$1$hostname\" couldn't be reached for $2 minutes" >> /var/log/miniupnpc.log
+        set -- "$counter" $(( counter + 1 ))
+        echo "[WARNING] $(date): \"$subdomain$hostname\" couldn't be reached for $counter minutes" >> /var/log/miniupnpc.log
     fi
-    if [ "$3" = "false" ]; then
+    if [ "$availability" = "false" ]; then
         return
-    elif [ "$2" = "$4" ]; then
-        echo "[ALERT] $(date): \"$1$hostname\" couldn't be reached for $2 minutes. Taking action..." >> /var/log/miniupnpc.log
-        $5
-        set -- "$3" "false"
+    elif [ "$counter" = "$timeout" ]; then
+        echo "[ALERT] $(date): \"$subdomain$hostname\" couldn't be reached for $counter minutes. Taking action..." >> /var/log/miniupnpc.log
+        $action
+        set -- "$availability" "false"
     fi
 }
 
@@ -67,10 +87,10 @@ backup_action() {
    update_subdomain $subdomain_cloud
 }
 
-# $1 - Current minute
 main_loop() {
-    check_server $subdomain_backup $fail_count_backup $availability_backup $timeout_backup main_action
-    if [ "$1" = "00" ]; then
+    local minute=$1
+    check_server $subdomain_backup "$fail_count_backup" "$availability_backup" $timeout_backup main_action
+    if [ "$minute" = "00" ]; then
         update_cloud $subdomain_main
         update_subdomain $subdomain_backup
         if [ "$availability_backup" = "false" ]; then
@@ -79,10 +99,10 @@ main_loop() {
     fi
 }
 
-# $1 - Current minute
 backup_loop() {
-    check_server $subdomain_main $fail_count_main $availability_main $timeout_main backup_action
-    if [ "$1" == "00" ]; then
+    local minute=$1
+    check_server $subdomain_main "$fail_count_main" "$availability_main" $timeout_main backup_action
+    if [ "$minute" == "00" ]; then
         update_subdomain $subdomain_main
         if [ "$availability_main" = "false" ]; then
             backup_action
@@ -95,19 +115,17 @@ update_ports() {
     upnpc -r 22 TCP 80 TCP 443 TCP
 }
 
-# Main loop
-while true; do
-    current_minute=$(date +%M)
+# Main
+load_states
 
-    if [ "$current_system" = "main" ]; then
-        main_loop "$current_minute"
-    elif [ "$current_system" = "backup" ]; then
-        backup_loop "$current_minute"
-    fi
+current_minute=$(date +%M)
+if [ "$current_system" = "main" ]; then
+    main_loop "$current_minute"
+elif [ "$current_system" = "backup" ]; then
+    backup_loop "$current_minute"
+fi
+if [ "$current_minute" = "00" ]; then
+    update_ports
+fi
 
-    if [ "$current_minute" = "00" ]; then
-        update_ports
-    fi
-
-    sleep 60
-done
+save_states
