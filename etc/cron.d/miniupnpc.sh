@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Details
-hostname="flaavf.dev"
-password="Gw1-WO1vuN7"
-username="Flavian"
+hostname="tvreichenburg.ch"
+password="" # Set password
+username="" # Set username
 subdomain_cloud="cloud." # Replace with cloud subdomain
 subdomain_main="server1." # Replace with dedicated main subdomain
 subdomain_backup="server2." # Replace with dedicated backup subdomain
@@ -12,9 +12,8 @@ subdomain_backup="server2." # Replace with dedicated backup subdomain
 current_system="main" # "main" or "backup"
 timeout_main=5 # Minutes to wait before marking main as unavailable
 timeout_backup=5 # Minutes to wait before marking backup as unavailable
-
-# State file for mutable variables
-state_file="/var/tmp/miniupnpc.state"
+state_file="/var/tmp/miniupnpc.state" # State file for mutable variables
+log_file="/var/log/miniupnpc.log" # Log file
 
 # Loads state variables from file
 load_states() {
@@ -39,16 +38,17 @@ EOF
 }
 
 # Updates the DNS record to point to the current IP
-# $1 - Subdomain to be updated
 update_subdomain() {
+    local subdomain=$1
+
     ip=$(external-ip)
     if [ -z "$ip" ]; then
-      echo "[ERROR] - $(date): Failed to retrieve external IP." >> /var/log/miniupnpc.log
+      echo "[ERROR] - $(date): Failed to retrieve external IP." >> $log_file
       return
     fi
 
-    curl "https://infomaniak.com/nic/update?hostname=$1$hostname&password=$password&username=$username&myip=$ip"
-    echo "[INFO] - $(date): Sent update request for \"$1$hostname\" with IP \"$ip\"" >> /var/log/miniupnpc.log
+    curl "https://infomaniak.com/nic/update?hostname=$subdomain$hostname&password=$password&username=$username&myip=$ip"
+    echo "[INFO] - $(date): Sent update request for \"$subdomain$hostname\" with IP \"$ip\"" >> $log_file
 }
 
 # Pings the defined URL for availability and updates a counter
@@ -60,27 +60,27 @@ check_server() {
     local action=$5
     
     if ping -c 1 "$subdomain"$hostname > /dev/null 2>&1; then
-        echo "[SUCCESS] $(date): Ping to \"$subdomain$hostname\" was successful." >> /var/log/miniupnpc.log
+        echo "[SUCCESS] $(date): Ping to \"$subdomain$hostname\" was successful." >> $log_file
         if [ "$availability" = "false" ]; then
-            echo "[INFO] $(date): \"$subdomain$hostname\" is back online." >> /var/log/miniupnpc.log
+            echo "[INFO] $(date): \"$subdomain$hostname\" is back online." >> $log_file
         fi
         set -- "$availability" "true"
         set -- "$counter" 0
     else
         set -- "$counter" $(( counter + 1 ))
-        echo "[WARNING] $(date): \"$subdomain$hostname\" couldn't be reached for $counter minutes" >> /var/log/miniupnpc.log
+        echo "[WARNING] $(date): \"$subdomain$hostname\" couldn't be reached for $counter minutes" >> $log_file
     fi
     if [ "$availability" = "false" ]; then
         return
     elif [ "$counter" = "$timeout" ]; then
-        echo "[ALERT] $(date): \"$subdomain$hostname\" couldn't be reached for $counter minutes. Taking action..." >> /var/log/miniupnpc.log
+        echo "[ALERT] $(date): \"$subdomain$hostname\" couldn't be reached for $counter minutes. Taking action..." >> $log_file
         $action
         set -- "$availability" "false"
     fi
 }
 
 main_action() {
-    echo "[ALERT] $(date): \"$subdomain_backup$hostname\" couldn't be reached for $fail_count_backup minutes." >> /var/log/miniupnpc.log
+    echo "[ALERT] $(date): \"$subdomain_backup$hostname\" couldn't be reached for $fail_count_backup minutes." >> $log_file
 }
 
 backup_action() {
@@ -102,7 +102,7 @@ main_loop() {
 backup_loop() {
     local minute=$1
     check_server $subdomain_main "$fail_count_main" "$availability_main" $timeout_main backup_action
-    if [ "$minute" == "00" ]; then
+    if [ "$minute" = "00" ]; then
         update_subdomain $subdomain_main
         if [ "$availability_main" = "false" ]; then
             backup_action

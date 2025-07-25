@@ -352,7 +352,7 @@ Einrichtung:
 2. Platziere die 'miniupnpc.sh'-Datei im Ordner `/etc/cron.d/`
 3. Mach das Script ausführbar `chmod +x /etc/cron.d/miniupnpc.sh`
 4. Öffne den Crontab-Editor für root `crontab -e -u root`
-5. Damit das Script beim Systemstart ausgeführt wird, füge diese Zeile hinzu `@reboot root sh /etc/cron.d/miniupnpc.sh`
+5. Damit das Script jede Minute ausgeführt wird, füge diese Zeile hinzu `* * * * * root /etc/cron.d/miniupnpc.sh`
 
 Bedienung:  
 [MiniUPnPc Referenz](https://manpages.debian.org/unstable/miniupnpc/index.html)  
