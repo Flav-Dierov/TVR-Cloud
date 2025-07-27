@@ -118,25 +118,26 @@ Unser Verein umfasst viele Mitglieder, welche alle potenziell Gebrauch von einem
 
 Vergleich:  
 SBC: [Radxa Rock 5C 32GB](https://radxa.com/products/rock5/5c/)  
-NAS: [Terramaster F4-424](https://www.terra-master.com/global/products/homesoho-nas/f4-809.html)
+NAS: [Terramaster F4-424 Pro](https://www.terra-master.com/global/products/homesoho-nas/f4-809.html)
 
 | System            | SBC                        | NAS              |
 | ----------------- | -------------------------- | ---------------- |
-| Schächte          | **5x SATA**                | 4x SATA          |
-| Ethernet          | 1x 1Gbps (erweiterbar)     | **2x 2.5 Gbps**  |
-| Arbeitsspeicher   | **32GB**                   | 8GB              |
-| Prozessor         | **4x 3.30GHz, 4x 2.31GHz** | 4x 3.40GHz       |
-| Leistungsaufnahme | **~8W**                    | ~17W             |
-| Cache             | **ZFS ARC**                | M.2 SSD          |
-| Preis             | **CHF 275**                | CHF 420          |
+| Datenträger       | **5x SATA**                | 4x SATA          |
+| Ethernet          | **1x 5Gbps**               | 2x 2.5 Gbps      |
+| Arbeitsspeicher   | **32GB**                   | 16GB             |
+| Prozessor         | **4x 2.26GHz, 4x 1.80GHz** | 8x 1.80GHz       |
+| Leistungsaufnahme | **10W**                    | 13W              |
+| Cache             | ZFS ARC                    | M.2 SSD          |
 | Gehäuse           | eigenbau                   | **vorgefertigt** |
+| Preis             | **CHF ~350**               | CHF 579          |
 
-Um die Bandbreite zu erhöhen, kann ein [2.5Gbps Ethernet Adapter (45CHF)](https://www.galaxus.ch/de/s1/product/delock-adapter-usb-typ-a-stecker-zu-25-gigabit-lan-usb-30-rj45-25-gigabit-ethernet-1x-netzwerkadapte-13172086) verbaut werden, falls dies benötigt wird. Das ARC verwendet freien Arbeitsspeicher um Daten zu cachen. Ein Gehäuse müsste selbst gebaut werden. Unter dem Strich ist der SBC leistungsstärker und preiswerter als ein NAS, weshalb er favourisiert wird.
+Bemerkungen:  
+ZFS ARC verwendet vom System nicht verwendeten Arbeitsspeicher, um Input/Output-Prozesse zu beschleunigen. Diese Caching-Methode ist bei ausreichend Arbeitsspeicher schneller als eine M.2 SSD.
 
 SSD: [Samsung 870 EVO](https://www.samsung.com/ch/memory-storage/sata-ssd/mz-77e4t0b-eu/)  
 HDD: [WD Red Plus](https://www.westerndigital.com/products/internal-drives/wd-red-plus-sata-3-5-hdd?sku=WD40EFPX)
 
-| Medium (5x 4TB)        | SSD            | HDD            |
+| Datenträgertyp (5x)    | SSD            | HDD            |
 | ---------------------- | -------------- | -------------- |
 | Preis                  | CHF 1300       | **CHF 500**    |
 | Haltbarkeit            | **5-10 Jahre** | 3-5 Jahre      |
@@ -146,37 +147,46 @@ HDD: [WD Red Plus](https://www.westerndigital.com/products/internal-drives/wd-re
 | Schreibgeschwindigkeit | **21.2Gbps**   | 7.2Gbps        |
 | Lesegeschwindigkeit    | **22.4Gbps**   | 7.2Gbps        |
 
-Schreib- und Lesegeschwindigkeiten sind inkonsequent, weil das System durch die verfügbare Internetleitung limitiert wird. Auch der Stromverbrauch ist inkonsequent, da die Strompreise auf die erwartete Lebenszeit kaum einen Unterschied machen. Die Haltbarkeit ist bei SSDs schwer einzuschätzen, da sie vom Nutzungsverhalten abhängt, sollte aber bei geringer Nutzung länger sein als HDDs. Hier wäre die Rechnung lediglich Kosten/Lebensdauer und Egal ob man pessimistisch oder optimistisch rechnet sind HDDs günstiger, was diese Wahl zum Favouriten macht.
+Bemerkungen:  
+Schreib- und Lesegeschwindigkeiten sind inkonsequent, weil das System durch die verfügbare Internetleitung limitiert wird. Auch der Stromverbrauch ist inkonsequent, da die Strompreise auf die erwartete Lebenszeit kaum einen Unterschied machen. Die Haltbarkeit ist bei SSDs schwer einzuschätzen, da sie vom Nutzungsverhalten abhängt, sollte aber bei geringer Nutzung länger sein als HDDs. Hier wäre die Rechnung lediglich Kosten/Lebensdauer und Egal ob man pessimistisch oder optimistisch rechnet sind HDDs günstiger.
 
 ### Hauptserver
 
 Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung sowie Arbeitsspeicher benötigt. Die erwartete Laufzeit des Systems beläuft sich auf 5 Jahre.
 
-| Komponenten                                                                                                                           | Preis       |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [1x Radxa Rock 5C (32GB)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                           | CHF 163     |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                               | CHF 4       |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37      |
-| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17      |
-| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10      |
-| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 22      |
-| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500     |
-| **TOTAL**                                                                                                                             | **CHF 753** |
+| Komponenten                                                                                                                                          | Preis        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C (32GB)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                                          | CHF 163      |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                              | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                               | CHF 37       |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                        | CHF 17       |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                            | CHF 10       |
+| [1x Delock 5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
+| [1x Delock Molex Adapter](https://www.galaxus.ch/de/s1/product/delock-y-powerkabel-molex-interne-kabel-pc-5805880)                                   | CHF 12       |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)                | CHF 22       |
+| [1x Noctua 140mm Gehäuselüfter](https://www.galaxus.ch/de/s1/product/noctua-nf-a14-uln-140-mm-1-x-pc-luefter-2451485)                                | CHF 32       |
+| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                             | CHF 500      |
+| 1x DIY Gehäuse                                                                                                                                       | CHF ~20      |
+| **TOTAL**                                                                                                                                            | **CHF ~851** |
 
 ### Backupserver
 
 Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle, dass dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt, nur temporär zugeschaltet zu werden und stellt nur die essenziellen Dienste zur Verfügung, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.  
 
-| Komponenten                                                                                                                           | Preis       |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [1x Radxa Rock 5C Lite (16GB)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                      | CHF 86      |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                               | CHF 4       |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                | CHF 37      |
-| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                         | CHF 17      |
-| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                             | CHF 10      |
-| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343) | CHF 22      |
-| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                              | CHF 500     |
-| **TOTAL**                                                                                                                             | **CHF 676** |
+| Komponenten                                                                                                                                          | Preis        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C Lite (16GB)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                                     | CHF 86       |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                              | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                               | CHF 37       |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                        | CHF 17       |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                            | CHF 10       |
+| [1x Delock 5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
+| [1x Delock Molex Adapter](https://www.galaxus.ch/de/s1/product/delock-y-powerkabel-molex-interne-kabel-pc-5805880)                                   | CHF 12       |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)                | CHF 22       |
+| [1x Noctua 140mm Gehäuselüfter](https://www.galaxus.ch/de/s1/product/noctua-nf-a14-uln-140-mm-1-x-pc-luefter-2451485)                                | CHF 32       |
+| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                             | CHF 500      |
+| 1x DIY Gehäuse                                                                                                                                       | CHF ~20      |
+| **TOTAL**                                                                                                                                            | **CHF ~774** |
 
 ### Zusammenbau
 
