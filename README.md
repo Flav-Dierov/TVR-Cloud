@@ -336,22 +336,27 @@ zfs create -o recordsize=16K -o primarycache=metadata -o logbias=throughput /mnt
 zfs create /mnt/zfs/webserver
 ```
 
+### Cron
+
+Beschreibung:  
+Cron dient zur Konfiguration von Aufträgen, welche in bestimmten Intervallen ausgeführt werden müssen. Das Programm unterstützt uns bei der Erstellung von Backups, dem Synchronisieren der Server und beim Überwachen der Erreichbarkeit.
+
 ### Sanoid
 
 Beschreibung:  
-Sanoid hilft dient zur Erstellung von Backups.
+Sanoid dient zur Erstellung von Backups.
 
 ### Syncoid
 
 Beschreibung:  
-Syncoid hilft zum Synchronisieren von Geräten.
+Syncoid dient zum Synchronisieren von Geräten.
 
 ### MiniUPnPc
 
 Beschreibung:  
 MiniUPnPc ist eine Kollektion von Befehlen zur Interaktion mit dem 'Universal Plug and Play'-Protokoll. Die Befehle helfen bei der Ermittlung der öffentlichen IP eines Netzwerks sowie der automatischen Portweiterleitung.
 
-Das './miniupnpc.sh'-Script enthält ein Programm zur dynamischen DNS-Aktualisierung, sowie für die Umleitung der Domain auf ein Backupsystem und automatische Portweiterleitung.
+Das './miniupnpc.sh'-Script enthält ein Programm zur dynamischen DNS-Aktualisierung, sowie für die Umleitung der Domain auf ein Backupsystem und automatische Portweiterleitung. Dabei ist die Idee, es regelmässig durch Cron ausführen zu lassen.
 
 Installation:  
 `apt install miniupnpc -y`
