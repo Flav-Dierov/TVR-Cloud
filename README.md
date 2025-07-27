@@ -126,7 +126,7 @@ NAS: [Terramaster F4-424 Pro](https://www.terra-master.com/global/products/homes
 | Ethernet          | **1x 5Gbps**               | 2x 2.5 Gbps      |
 | Arbeitsspeicher   | **32GB**                   | 16GB             |
 | Prozessor         | **4x 2.26GHz, 4x 1.80GHz** | 8x 1.80GHz       |
-| Leistungsaufnahme | **10W**                    | 13W              |
+| Leistungsaufnahme | **8W**                     | 13W              |
 | Cache             | ZFS ARC                    | M.2 SSD          |
 | Gehäuse           | eigenbau                   | **vorgefertigt** |
 | Preis             | **CHF ~350**               | CHF 579          |
@@ -142,8 +142,8 @@ HDD: [WD Red Plus](https://www.westerndigital.com/products/internal-drives/wd-re
 | Preis                  | CHF 1300       | **CHF 500**    |
 | Haltbarkeit            | **5-10 Jahre** | 3-5 Jahre      |
 | Ausfall                | Spontan        | **Allmählich** |
-| Leistungsaufnahme Ruhe | **~0.2W**      | ~1.5W          |
-| Leistungsaufnahme Last | ~25.0W         | **~23.5W**     |
+| Leistungsaufnahme Ruhe | **0.2W**       | 1.5W           |
+| Leistungsaufnahme Last | 25.0W          | **23.5W**      |
 | Schreibgeschwindigkeit | **21.2Gbps**   | 7.2Gbps        |
 | Lesegeschwindigkeit    | **22.4Gbps**   | 7.2Gbps        |
 
