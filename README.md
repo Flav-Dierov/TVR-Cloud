@@ -414,13 +414,13 @@ Dieser Container ist eine Nextcloud-Instanz. Nextcloud ist ein Open-Source Cloud
 
 Vergleich:
 
-| Variante      | AiO   | Pi   | Server | Docker |
-| ------------- | ----- | ---- | ------ | ------ |
-| Nutzeranzahl  | 100   | ∞    | ∞      | ∞      |
-| Dokumentation | ***   | *    | ****   | *****  |
-| Bedienbarkeit | ***** | N/A  | *      | ***    |
-| Performance   | **    | **** | *****  | ***    |
-| Support       | ****  | *    | *****  | ***    |
+| Variante      | AiO   | Pi    | Server | Docker |
+| ------------- | ----- | ----- | ------ | ------ |
+| Nutzeranzahl  | 100   | ∞     | ∞      | ∞      |
+| Dokumentation | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆  | ★★★★★  |
+| Einfachheit   | ★★★★★ | ☆☆☆☆☆ | ★☆☆☆☆  | ★★★☆☆  |
+| Performance   | ★★☆☆☆ | ★★★★☆ | ★★★★★  | ★★★☆☆  |
+| Support       | ★★★★★ | ★☆☆☆☆ | ★★★☆☆  | ★★★★☆  |
 
 AiO fällt aufgrund der limitierten Nutzerzahl leider aus dem Rennen, obwohl diese Variante am einfachsten aufzusetzen wäre, da das System darauf ausgelegt sein soll, für unseren gesamten Verein verfügbar zu sein.
 
