@@ -603,4 +603,12 @@ Mit Cron automatische Erstellung von Sanoid-Backups erstellen.
 
 ## 7. Wartung
 
+### Zugriff
+
 **Empfehlung** - SSH über VSCode nutzen: In VSCode 'Verbinden mit...' anwählen, Nutzer@Adresse und Passwort eingeben.
+
+### Updates
+
+### Datenträger auswechseln
+
+### Backups wiederherstellen
