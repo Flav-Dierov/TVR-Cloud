@@ -112,7 +112,7 @@ backup_loop() {
 
 # Redirects ports to the current system for 7 Days
 update_ports() {
-    upnpc -r 22 TCP 80 TCP 443 TCP
+    upnpc -r 22 TCP 80 TCP 443 TCP 443 UDP
 }
 
 # Main

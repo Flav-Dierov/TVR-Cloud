@@ -15,6 +15,7 @@ https://<domain> {
 	encode
 	file_server
 	php_fastcgi cloud:9000
+	protocols h2 h3
 	root * /var/www/html
 
 	# Redirects
@@ -102,6 +103,7 @@ http://cloud, http://webserver {
         encode
 		file_server
 		php_fastcgi cloud:9000
+		protocols h2 h3
 		root * /var/www/html
 	
 		try_files {path} {path}/ /index.php{uri}
