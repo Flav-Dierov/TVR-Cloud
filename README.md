@@ -129,7 +129,7 @@ NAS: [Terramaster F4-424 Pro](https://www.terra-master.com/global/products/homes
 | Leistungsaufnahme | **8W**                     | 13W              |
 | Cache             | ZFS ARC                    | M.2 SSD          |
 | Gehäuse           | eigenbau                   | **vorgefertigt** |
-| Preis             | **CHF ~350**               | CHF 579          |
+| Preis             | **CHF ~321**               | CHF 579          |
 
 Bemerkungen:  
 ZFS ARC verwendet vom System nicht verwendeten Arbeitsspeicher, um Input/Output-Prozesse zu beschleunigen. Diese Caching-Methode ist bei ausreichend Arbeitsspeicher schneller als eine M.2 SSD.
@@ -154,43 +154,44 @@ Schreib- und Lesegeschwindigkeiten sind inkonsequent, weil das System durch die 
 
 Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung sowie Arbeitsspeicher benötigt. Die erwartete Laufzeit des Systems beläuft sich auf 5 Jahre.
 
-| Komponenten                                                                                                                                          | Preis        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [1x Radxa Rock 5C (32GB)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                                          | CHF 163      |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                              | CHF 4        |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                               | CHF 37       |
-| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                        | CHF 17       |
-| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                            | CHF 10       |
-| [1x Delock 5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
-| [1x Delock Molex Adapter](https://www.galaxus.ch/de/s1/product/delock-y-powerkabel-molex-interne-kabel-pc-5805880)                                   | CHF 12       |
-| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)                | CHF 22       |
-| [1x Noctua 140mm Gehäuselüfter](https://www.galaxus.ch/de/s1/product/noctua-nf-a14-uln-140-mm-1-x-pc-luefter-2451485)                                | CHF 32       |
-| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                             | CHF 500      |
-| 1x DIY Gehäuse                                                                                                                                       | CHF ~20      |
-| **TOTAL**                                                                                                                                            | **CHF ~851** |
+| Komponenten                                                                                                                                       | Preis        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C (32GB)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                                       | CHF 163      |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                           | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                            | CHF 37       |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                     | CHF 17       |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                         | CHF 10       |
+| [1x Delock 5G Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
+| [1x Delock 92mm 5V Lüfter](https://www.galaxus.ch/de/s1/product/delock-axialluefter-5-v-dc-92-x-92-x-25-mm-schwarz-92-mm-1-x-pc-luefter-60097835) | CHF 20       |
+| [5x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 28       |
+| [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8        |
+| [5x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                            | CHF 500      |
+| 1x DIY Gehäuse                                                                                                                                    | CHF ???      |
+| **TOTAL**                                                                                                                                         | **CHF ~821** |
 
 ### Backupserver
 
-Der Backupserver wird den Hauptserver spiegeln und übernimmt im Falle, dass dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt, nur temporär zugeschaltet zu werden und stellt nur die essenziellen Dienste zur Verfügung, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.  
+Der Backupserver wird den Hauptserver spiegeln und übernimmt dessen Funktion im Falle, dass dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt, nur temporär zugeschaltet zu werden und stellt nur die essenziellen Dienste zur Verfügung, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.  
 
-| Komponenten                                                                                                                                          | Preis        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [1x Radxa Rock 5C Lite (16GB)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                                     | CHF 86       |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                              | CHF 4        |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                               | CHF 37       |
-| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                        | CHF 17       |
-| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                            | CHF 10       |
-| [1x Delock 5Gbps Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
-| [1x Delock Molex Adapter](https://www.galaxus.ch/de/s1/product/delock-y-powerkabel-molex-interne-kabel-pc-5805880)                                   | CHF 12       |
-| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)                | CHF 22       |
-| [1x Noctua 140mm Gehäuselüfter](https://www.galaxus.ch/de/s1/product/noctua-nf-a14-uln-140-mm-1-x-pc-luefter-2451485)                                | CHF 32       |
-| [5x WD Red Plus (4TB)](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                             | CHF 500      |
-| 1x DIY Gehäuse                                                                                                                                       | CHF ~20      |
-| **TOTAL**                                                                                                                                            | **CHF ~774** |
+| Komponenten                                                                                                                                       | Preis        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [1x Radxa Rock 5C Lite (16GB)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                                  | CHF 86       |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                           | CHF 4        |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                            | CHF 37       |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                     | CHF 17       |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                         | CHF 10       |
+| [1x Delock 5G Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
+| [1x Delock 92mm 5V Lüfter](https://www.galaxus.ch/de/s1/product/delock-axialluefter-5-v-dc-92-x-92-x-25-mm-schwarz-92-mm-1-x-pc-luefter-60097835) | CHF 20       |
+| [5x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 28       |
+| [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8        |
+| [5x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                            | CHF 500      |
+| 1x DIY Gehäuse                                                                                                                                    | CHF ???      |
+| **TOTAL**                                                                                                                                         | **CHF 744** |
 
 ### Zusammenbau
 
-[Zusammenbau Youtube-Video](https://youtu.be/l30sADfDiM8 (preview))
+- [Zusammenbau SBC](https://youtu.be/l30sADfDiM8 (preview))
+- [Inspiration Gehäuse](https://makerworld.com/en/models/1605027-raspberry-pi-5-based-4-bay-nas (preview))
 
 ## 3. System
 
