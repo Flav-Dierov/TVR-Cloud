@@ -1,0 +1,7 @@
+/var/log/portforwarding.log {
+    size 20M
+    rotate 5
+    compress
+    missingok
+    notifempty
+}
