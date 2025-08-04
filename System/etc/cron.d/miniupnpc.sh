@@ -110,11 +110,6 @@ backup_loop() {
     fi
 }
 
-# Redirects ports to the current system for 7 Days
-update_ports() {
-    upnpc -r 22 TCP 80 TCP 443 TCP 443 UDP
-}
-
 # Main
 load_states
 
@@ -123,9 +118,6 @@ if [ "$current_system" = "main" ]; then
     main_loop "$current_minute"
 elif [ "$current_system" = "backup" ]; then
     backup_loop "$current_minute"
-fi
-if [ "$current_minute" = "00" ]; then
-    update_ports
 fi
 
 save_states
