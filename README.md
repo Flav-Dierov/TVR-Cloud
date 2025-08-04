@@ -122,71 +122,74 @@ NAS: [Terramaster F4-424 Pro](https://www.terra-master.com/global/products/homes
 
 | System            | SBC                        | NAS              |
 | ----------------- | -------------------------- | ---------------- |
-| Datenträger       | **5x SATA**                | 4x SATA          |
+| Datenträger       | 4x SATA, 1x e-SATA         | 4x SATA          |
 | Ethernet          | **1x 5Gbps**               | 2x 2.5 Gbps      |
 | Arbeitsspeicher   | **32GB**                   | 16GB             |
 | Prozessor         | **4x 2.26GHz, 4x 1.80GHz** | 8x 1.80GHz       |
 | Leistungsaufnahme | **8W**                     | 13W              |
 | Cache             | ZFS ARC                    | M.2 SSD          |
 | Gehäuse           | eigenbau                   | **vorgefertigt** |
-| Preis             | **CHF ~321**               | CHF 579          |
+| Preis             | **CHF ~315**               | CHF 579          |
 
 Bemerkungen:  
-ZFS ARC verwendet vom System nicht verwendeten Arbeitsspeicher, um Input/Output-Prozesse zu beschleunigen. Diese Caching-Methode ist bei ausreichend Arbeitsspeicher schneller als eine M.2 SSD.
+ZFS ARC verwendet vom System nicht belegten Arbeitsspeicher, um Input/Output-Prozesse zu beschleunigen. Diese Caching-Methode ist bei ausreichend Arbeitsspeicher schneller als eine M.2 SSD.
 
 SSD: [Samsung 870 EVO](https://www.samsung.com/ch/memory-storage/sata-ssd/mz-77e4t0b-eu/)  
 HDD: [WD Red Plus](https://www.westerndigital.com/products/internal-drives/wd-red-plus-sata-3-5-hdd?sku=WD40EFPX)
 
-| Datenträgertyp (5x)    | SSD            | HDD            |
+| Datenträgertyp         | SSD            | HDD            |
 | ---------------------- | -------------- | -------------- |
-| Preis                  | CHF 1300       | **CHF 500**    |
+| Preis                  | CHF 260        | **CHF 100**    |
 | Haltbarkeit            | **5-10 Jahre** | 3-5 Jahre      |
 | Ausfall                | Spontan        | **Allmählich** |
-| Leistungsaufnahme Ruhe | **0.2W**       | 1.5W           |
-| Leistungsaufnahme Last | 25.0W          | **23.5W**      |
-| Schreibgeschwindigkeit | **21.2Gbps**   | 7.2Gbps        |
-| Lesegeschwindigkeit    | **22.4Gbps**   | 7.2Gbps        |
+| Leistungsaufnahme Ruhe | **0.03W**      | 0.30W          |
+| Leistungsaufnahme Last | 5.0W           | **4.70W**      |
+| Schreibgeschwindigkeit | **4.48Gbps**   | 1.44Gbps       |
+| Lesegeschwindigkeit    | **4.24Gbps**   | 1.44Gbps       |
 
 Bemerkungen:  
-Schreib- und Lesegeschwindigkeiten sind inkonsequent, weil das System durch die verfügbare Internetleitung limitiert wird. Auch der Stromverbrauch ist inkonsequent, da die Strompreise auf die erwartete Lebenszeit kaum einen Unterschied machen. Die Haltbarkeit ist bei SSDs schwer einzuschätzen, da sie vom Nutzungsverhalten abhängt, sollte aber bei geringer Nutzung länger sein als HDDs. Hier wäre die Rechnung lediglich Kosten/Lebensdauer und Egal ob man pessimistisch oder optimistisch rechnet sind HDDs günstiger.
+Schreib- und Lesegeschwindigkeiten sind inkonsequent, weil das System durch die verfügbare Internetleitung limitiert wird. Auch der Stromverbrauch ist inkonsequent, da die Strompreise auf die erwartete Lebenszeit kaum einen Unterschied machen. Die Haltbarkeit ist bei SSDs schwer einzuschätzen, da sie vom Nutzungsverhalten abhängt, sollte aber bei geringer Nutzung länger sein als HDDs. Hier wäre die Rechnung lediglich Kosten/Lebensdauer und egal ob man pessimistisch oder optimistisch rechnet sind HDDs günstiger. Die Lebensdauer der HDDs kann verlängert werden, in dem die Datenträger regelmässig in einen Schlafzustand versetzt werden.  
+
+Unser Archiv belegt aktuell weniger als 100GB Speicherplatz. Damit lässt sich abschätzen, dass der Verein als ganzes weit unter 1TB liegt. Es ist jedoch so, dass sich der Kauf von HDDs mit einer Grösse von unter 4TB kaum lohnt. Hinzu kommt, dass mindestens 2 Datenträger benötigt werden, um die Daten redundant abzuspeichern.
 
 ### Hauptserver
 
-Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung sowie Arbeitsspeicher benötigt. Die erwartete Laufzeit des Systems beläuft sich auf 5 Jahre.
+Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechenleistung sowie Arbeitsspeicher benötigt.
 
-| Komponenten                                                                                                                                       | Preis        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [1x Radxa Rock 5C (32GB)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                                       | CHF 163      |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                           | CHF 4        |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                            | CHF 37       |
-| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                     | CHF 17       |
-| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                         | CHF 10       |
-| [1x Delock 5G Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
-| [1x Delock 92mm 5V Lüfter](https://www.galaxus.ch/de/s1/product/delock-axialluefter-5-v-dc-92-x-92-x-25-mm-schwarz-92-mm-1-x-pc-luefter-60097835) | CHF 20       |
-| [5x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 28       |
-| [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8        |
-| [5x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                            | CHF 500      |
-| 1x DIY Gehäuse                                                                                                                                    | CHF ???      |
-| **TOTAL**                                                                                                                                         | **CHF ~821** |
+| Komponenten                                                                                                                                       | Preis       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [1x Radxa Rock 5C (32GB)](https://arace.tech/products/radxa-rock-5c?variant=42798017052852)                                                       | CHF 163     |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                           | CHF 4       |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                            | CHF 37      |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                     | CHF 17      |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                         | CHF 10      |
+| [1x Delock 5G Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34      |
+| [1x Delock 92mm 5V Lüfter](https://www.galaxus.ch/de/s1/product/delock-axialluefter-5-v-dc-92-x-92-x-25-mm-schwarz-92-mm-1-x-pc-luefter-60097835) | CHF 20      |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 22      |
+| [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8       |
+| 1x DIY Gehäuse                                                                                                                                    | CHF ???     |
+| *SUBTOTAL*                                                                                                                                        | *CHF ~315*  |
+| + [2x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                          | CHF 200     |
+| **TOTAL**                                                                                                                                         | **CHF 515** |
 
 ### Backupserver
 
-Der Backupserver wird den Hauptserver spiegeln und übernimmt dessen Funktion im Falle, dass dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt, nur temporär zugeschaltet zu werden und stellt nur die essenziellen Dienste zur Verfügung, dadurch benötigt er weniger Rechenleistung und Arbeitsspeicher, was ihn günstiger macht.  
+Der Backupserver wird den Hauptserver spiegeln und übernimmt dessen Funktion im Falle, dass dieser nicht mehr erreichbar wäre. Er ist darauf ausgelegt, nur temporär zugeschaltet zu werden und stellt nur die essenziellen Dienste zur Verfügung, dadurch benötigt er weniger Rechenleistung, Arbeitsspeicher und Bandbreite, was ihn günstiger macht.  
 
-| Komponenten                                                                                                                                       | Preis        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [1x Radxa Rock 5C Lite (16GB)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                                  | CHF 86       |
-| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                           | CHF 4        |
-| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                            | CHF 37       |
-| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                     | CHF 17       |
-| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                         | CHF 10       |
-| [1x Delock 5G Ethernet Adapter](https://www.galaxus.ch/de/s1/product/delock-usb-typ-a-5-gigabit-lan-adapter-usb-rj45-1x-netzwerkadapter-54010746) | CHF 34       |
-| [1x Delock 92mm 5V Lüfter](https://www.galaxus.ch/de/s1/product/delock-axialluefter-5-v-dc-92-x-92-x-25-mm-schwarz-92-mm-1-x-pc-luefter-60097835) | CHF 20       |
-| [5x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 28       |
-| [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8        |
-| [5x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                            | CHF 500      |
-| 1x DIY Gehäuse                                                                                                                                    | CHF ???      |
-| **TOTAL**                                                                                                                                         | **CHF 744** |
+| Komponenten                                                                                                                                       | Preis       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [1x Radxa Rock 5C Lite (16GB)](https://arace.tech/products/radxa-rock-5c?variant=42798339621044)                                                  | CHF 86      |
+| [1x Radxa Heatsink 6540B](https://arace.tech/products/radxa-heatsink-6540b-for-rock-5c)                                                           | CHF 4       |
+| [1x Radxa Penta SATA HAT](https://arace.tech/products/radxa-penta-sata-hat-up-to-5x-sata-disks-hat-for-raspberry-pi-5)                            | CHF 37      |
+| [1x Radxa eMMC Module (32GB)](https://arace.tech/products/emmc-module?variant=12483308748885)                                                     | CHF 17      |
+| [1x Radxa Power DC12 60W](https://arace.tech/products/radxa-power-dc-60w)                                                                         | CHF 10      |
+| [1x Delock 92mm 5V Lüfter](https://www.galaxus.ch/de/s1/product/delock-axialluefter-5-v-dc-92-x-92-x-25-mm-schwarz-92-mm-1-x-pc-luefter-60097835) | CHF 20      |
+| [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 22      |
+| [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8       |
+| 1x DIY Gehäuse                                                                                                                                    | CHF ???     |
+| *SUBTOTAL*                                                                                                                                        | *CHF ~204*  |
+| + [2x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                          | CHF 200     |
+| **TOTAL**                                                                                                                                         | **CHF 404** |
 
 ### Zusammenbau
 
@@ -519,11 +522,11 @@ Da der Dokument-Dienst nur intern von der Nextcloud-Instanz verwendet wird, dür
 
 ## 5. Netzwerk
 
-### Cloudflare
-
-### Ports
+### Tunnel
 
 ### Subnet
+
+### Ports
 
 ### Proxy
 
@@ -593,7 +596,15 @@ Ziel:
 Schutz der Daten bei Ausfall eines Datenträgers.
 
 Umsetzung:  
-In ZFS einen Pool mit RAID konfigurieren.
+In ZFS einen Pool mit RAID konfigurieren. "Redundant Array of Inexpensive Disks" ermöglicht es mehrere Datenträger virtuell zu kombinieren. Dabei hat man eine Wahl aus verschiedenen Konfigurationen, die Vorteile inder Redundanz, Lese- oder Schreibgeschwindigkeit bringen.
+
+| RAID Levels      | RAID 0 | RAID 1 | RAID Z1 | RAID Z2 | RAID Z3 |
+| ---------------- | ------ | ------ | ------- | ------- | ------- |
+| Min. Datenträger | 2      | 2      | 3       | 4       | 5       |
+| Speicherplatz    | 1      | 1/n    | 1-(1/n) | 1-(2/n) | 1-(3/n) |
+| Max. Ausfälle    | 0      | n-1    | 1       | 2       | 3       |
+| Schreibgeschw.   | n      | n      | n       | n       | n       |
+| Lesegeschw.      | n      | 1      | n-1     | n-2     | n-3     |
 
 ### Serverspiegelung
 
@@ -609,7 +620,7 @@ Ziel:
 Schutz vor fehlerhaften Einstellungen und Updates.
 
 Umsetzung:  
-Mit Cron automatische Erstellung von Sanoid-Backups erstellen.
+Mit Cron automatische Erstellung von ZFS-Backups erstellen.
 
 ### Rootless Docker
 
