@@ -21,15 +21,18 @@ Ziel dieses Repos ist es, alles zu dokumentieren, was benötigt wird, um ein TVR
 ## 1. Hosting
 
 Vergleich:  
-Unter den grossen Schweizer Hostinganbietern gibt es grundsätzlich [Hostpoint.ch](https://hostpoint.ch) und [Infomaniak.com](https://infomaniak.com), wobei letzterer im Vergleich der relevanten Werte als Favorit hervortritt.
+Unter den grossen Schweizer Hostinganbietern gibt es grundsätzlich [Hostpoint.ch](https://hostpoint.ch) und [Infomaniak.com](https://infomaniak.com). Hier werden, die jeweils günstigsten Angebote beider Anbieter verglichen, die alle Anforderungen erfüllen.
 
-| Anbieter                 | Infomaniak   | Hostpoint    |
-| ------------------------ | ------------ | ------------ |
-| Kosten .ch Domainname    | CHF 10/Jahr  | CHF 15/Jahr  |
-| Kosten 10x E-Mail Nutzer | CHF 192/Jahr | CHF 200/Jahr |
-| Speicher Postfach        | unbegrenzt   | 15GB/Nutzer  |
-| Drive-Speicher           | 15GB/Nutzer  | 15GB/Nutzer  |
-| Standort                 | Genf         | Rapperswil   |
+| Anbieter                 | **Infomaniak**  | Hostpoint       |
+| ------------------------ | --------------- | --------------- |
+| Kosten .ch Domainname    | **CHF 10/Jahr** | CHF 15/Jahr     |
+| Kosten 10x E-Mail Nutzer | **CHF 75/Jahr** | CHF 200/Jahr    |
+| Speicher Postfach        | **unbegrenzt**  | 15GB/Nutzer     |
+| Cloud-Speicher           | keiner          | **15GB/Nutzer** |
+| Standort                 | Genf            | **Rapperswil**  |
+
+Bemerkungen:  
+Der vom Hostinganbieter zur Verfügung gestellte Cloud-Speicher wird nicht benötigt, da diese Aufgabe vom Server erfüllt wird. Von beiden Anbietern hat nur Infomaniak ein Angebot ohne, weshalb es wesentlich günstiger ist. Vorteilhaft ist auch, dass Infomaniaks Postfächer über unbegrenzten Speicherplatz verfügen, was bei Hostpoint selbst beim teuersten Angebot nicht möglich ist. Der Standort ist grundsätzlich nicht massgebend.
 
 ### Domain
 
@@ -141,7 +144,7 @@ HDD: [WD Red Plus](https://www.westerndigital.com/products/internal-drives/wd-re
 | ---------------------- | -------------- | -------------- |
 | Preis                  | CHF 260        | **CHF 100**    |
 | Haltbarkeit            | **5-10 Jahre** | 3-5 Jahre      |
-| Ausfall                | Spontan        | **Allmählich** |
+| Ausfall                | Abrupt         | **Progressiv** |
 | Leistungsaufnahme Ruhe | **0.03W**      | 0.30W          |
 | Leistungsaufnahme Last | 5.0W           | **4.70W**      |
 | Schreibgeschwindigkeit | **4.48Gbps**   | 1.44Gbps       |
@@ -168,8 +171,7 @@ Der Hauptserver wird konstant alle Dienste betreiben, dazu wird genügend Rechen
 | [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 22      |
 | [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8       |
 | 1x DIY Gehäuse                                                                                                                                    | CHF ???     |
-| *SUBTOTAL*                                                                                                                                        | *CHF ~315*  |
-| + [2x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                          | CHF 200     |
+| [2x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                            | CHF 200     |
 | **TOTAL**                                                                                                                                         | **CHF 515** |
 
 ### Backupserver
@@ -187,8 +189,7 @@ Der Backupserver wird den Hauptserver spiegeln und übernimmt dessen Funktion im
 | [4x Delock SATA Verlängerung](https://www.galaxus.ch/de/s1/product/delock-kabel-serial-ata-und-power-intern-interne-kabel-pc-5997343)             | CHF 22      |
 | [1x OEM JST PH 2-Pin Stecker](https://www.galaxus.ch/de/s1/product/oem-jst-ph-2pin-female-elektronikkabel-stecker-5997777)                        | CHF 8       |
 | 1x DIY Gehäuse                                                                                                                                    | CHF ???     |
-| *SUBTOTAL*                                                                                                                                        | *CHF ~204*  |
-| + [2x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                          | CHF 200     |
+| [2x WD Red Plus 4TB](https://www.galaxus.ch/de/s1/product/wd-red-plus-4-tb-35-cmr-festplatte-22886688)                                            | CHF 200     |
 | **TOTAL**                                                                                                                                         | **CHF 404** |
 
 ### Zusammenbau
