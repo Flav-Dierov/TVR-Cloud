@@ -2,34 +2,17 @@
 # Reference: https://caddyserver.com/docs/caddyfile
 {
 	# Set the email for Let's Encrypt notifications
-	email <email>
-	servers {
-		protocols h2 h3
-	}
-}
-
-# Redirect HTTP requests to HTTPS
-http://<domain> {
-	redir https://<domain>{uri} permanent
+	email info@flaavf.dev
 }
 
 # Handle HTTPS Requests for the Nextcloud URL
-https://<domain> {
+https://cloud.flaavf.dev {
 	encode
 	file_server
 	php_fastcgi cloud:9000
 	root * /var/www/html
 
-	# Redirects
-	redir /.well-known/carddav /remote.php/dav 301
-	redir /.well-known/caldav /remote.php/dav 301
-	redir /.well-known/* /index.php{uri} 301
-	redir /remote/* /remote.php{uri} 301
-
-	# Prettify URLs
-	try_files {path} {path}/ /index.php{uri}
-
-	# Security headers
+	# Headers
 	header {
 		Permissions-Policy "interest-cohort=()"
 		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
@@ -42,27 +25,17 @@ https://<domain> {
 		- X-Powered-By
 	}
 
-	# Deny access to .well-known/acme-challenge except for Let's Encrypt
-	@acmeChallenge {
-		path /.well-known/acme-challenge/*
-	}
-	handle_path /@acmeChallenge {
-		file_server
-	}
+	# Redirects
+	redir /.well-known/caldav /remote.php/dav 301
+	redir /.well-known/carddav /remote.php/dav 301
 
-	# Deny access to sensitive files and respond with 403
+	# Forbidden
 	@forbiddenFiles {
-		path /.git/*
 		path /3rdparty/*
-		path /build/*
 		path /config/*
 		path /data/*
 		path /lib/*
-		path /templates/*
-		path /.*
 		path /console.php
-		path /db_structure
-		path /README
 		path /occ
 		not path /.well-known/*
 	}
@@ -91,23 +64,21 @@ https://<domain> {
 	}
 
 	# Needed for the 'Client Push' app
-	# handle_path /push/* {
-	# 	reverse_proxy unix//run/notify_push/notify_push.sock # (Have to figure out if this works)
-	# }
+	handle_path /push/* {
+		reverse_proxy unix//run/notify_push/notify_push.sock # (Have to figure out if this works)
+	}
 }
 
 # Bypass HTTPS and security headers for local requests
-http://cloud, http://webserver {
+http://webserver {
 	@internal {
 		remote_ip 172.0.0.0/8
-    }
-    handle @internal {
-        encode
+	}
+	handle @internal {
+		encode
 		file_server
 		php_fastcgi cloud:9000
 		root * /var/www/html
-	
-		try_files {path} {path}/ /index.php{uri}
 
 		@immutable {
 			path *.css *.js *.mjs *.svg *.gif *.png *.jpg *.ico *.wasm *.tflite
@@ -120,6 +91,6 @@ http://cloud, http://webserver {
 			not query v=*
 		}
 		header @static Cache-Control "max-age=15778463"
-    }
-    respond "Access Denied" 403
+	}
+	respond "Access Denied" 403
 }
